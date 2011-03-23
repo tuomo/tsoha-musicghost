@@ -101,7 +101,7 @@ class CachePlugin
     	self::$config['requests'] = $requests;
     	
     	if (file_exists($cacheFilename)) {
-    		$request = Atomik::get('request');
+            $request = implode('.', Atomik::get('request'));
     		
     		/* last modified time */
     		$cacheTime = filemtime($cacheFilename);
@@ -153,6 +153,7 @@ class CachePlugin
     	
     	$cacheFilename = self::$config['filename'];
     	$request = Atomik::get('request');
+        $request = implode('.', Atomik::get('request'));
     	
     	/* checks if the current url is cacheable */
     	$requests = self::$config['requests'];
