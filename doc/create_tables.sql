@@ -6,13 +6,13 @@ CREATE TYPE box_status AS ENUM ('normal', 'box', 'item');
 CREATE TABLE list (
     id          SERIAL PRIMARY KEY,
     name        TEXT NOT NULL,
-    sortname    TEXT NOT NULL,
     public      BOOLEAN NOT NULL
 );
 
 CREATE TABLE artist (
     id          SERIAL PRIMARY KEY,
     name        TEXT NOT NULL,
+    sortname    TEXT NOT NULL,
     homepage    TEXT,
     annotation  TEXT
 );
