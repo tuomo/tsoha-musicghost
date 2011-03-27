@@ -22,9 +22,22 @@ Hanna Nieminen\\hanna.m.nieminen@helsinki.fi}
 \section{Johdanto}
 
 \subsection{Järjestelmän tarkoitus}
-Järjestelmän avulla sen ylläpitäjä voi pitää kirjaa omistamistaan levyistä.
-Lisäksi järjestelmästä voi tehdä julkisen, jolloin myös vierailijat voivat
-selata levylistaa ja yksittäisten levyjen tietoja.
+Järjestelmän avulla sen ylläpitäjä voi pitää kirjaa levykokoelmastaan.
+Järjestelmään on mahdollista luoda useita erillisiä listoja, jolloin on
+mahdollista erotella esimerkiksi omistamansa levyt ja tulevat hankinnat
+toisistaan.  Lisäksi järjestelmästä voi tehdä julkisen, jolloin myös vierailijat
+voivat selata levylistaa ja yksittäisten levyjen tietoja.
+
+\subsection{Toimintaympäristö}
+Järjestelmää käytetään WWW-selaimen kautta. Sen ajamiseen tarvitaan
+Apache-palvelin varustettuna PHP5-tulkilla sekä PostgreSQL-tietokanta.
+
+\subsection{Rajaukset}
+Kaikki ominaisuudet, joita ei ole tässä dokumentissa erikseen mainittu, on
+oletusarvoisesti rajattu järjestelmän ulkopuolelle.
+
+\subsection{Toteutusympäristö}
+Toteutus pohjautuu Atomik-frameworkin versioon 2.2.2.
 
 \section{Yleiskuva järjestelmästä}
 
@@ -34,26 +47,43 @@ selata levylistaa ja yksittäisten levyjen tietoja.
 
 \subsection{Käyttäjäryhmät}
 \begin{description}
-\item[Vierailija] Kuka tahansa sivulla vieraileva käyttäjä.
-\item[Ylläpitäjä] Levytietokannan omistaja, joka ylläpitää tietokantaa.
+\item[Vierailija] Kuka tahansa sivulla vieraileva käyttäjä. Myös tietokannan
+omistaja kuuluu tähän luokkaan.
+\item[Ylläpitäjä] Levytietokannan omistaja,
+joka ylläpitää tietokantaa.
 \end{description}
 
 \section{Käyttötapaukset}
 
 \begin{itemize}
 
-\item Ylläpitäjä:
-\begin{description}
-\item[Levyn lisääminen] Ylläpitäjä voi lisätä uusia levyjä tietokantaan.
-\item[Levyn tietojen muokkaaminen] Ylläpitäjä voi muokata tietokannassa olevien levyjen tietoja.
-\item[Levyn poistaminen] Ylläpitäjä voi poistaa levyjä tietokannasta.
-\end{description}
-
 \item Vierailija:
 \begin{description}
 \item[Levylistan selaaminen] Kuka tahansa voi katsella tietokannan sisältöä.
-\item[Yksittäisen levyn tietojen tutkiminen] Käyttäjä voi valita yksittäisen levyn, jolloin hänelle näytetään sen tarkat tiedot.
-\item[Levyjen hakeminen hakusanalla] Käyttäjä voi antaa hakusanan, jolloin hänelle näytetään lista niistä levyistä, joiden tiedot sisältävät annetun hakusanan.
+Listauksessa näkyy kunkin levyn kohdalla sen esittäjä, nimi, julkaisuvuosi ja
+formaatti.
+\item[Yksittäisen levyn tietojen tutkiminen] Käyttäjä voi valita yksittäisen
+levyn, jolloin hänelle näytetään kaikki siihen liitetyt tiedot.
+\item[Levyjen hakeminen hakusanalla] Käyttäjä voi antaa hakusanan, jolloin
+hänelle näytetään lista niistä levyistä, joiden tiedot sisältävät annetun
+hakusanan.
+\item[Kirjautuminen sisään] Mikäli vierailija sattuu olemaan tietokannan
+omistaja, hän voi kirjautua sisään järjestelmään, jolloin hänestä tulee
+ylläpitäjä.
+\end{description}
+
+\item Ylläpitäjä:
+\begin{description}
+\item[Levyn lisääminen] Ylläpitäjä voi lisätä uusia levyjä tietokantaan.
+Ylläpitäjä syöttää ainakin levyn tyypin, esittäjän ja nimen sekä valitsee, mille
+listalle se lisätään. Vapaaehtoisia tietoja ovat levyn julkaisuvuosi, formaatti,
+kansikuva ja vapaamuotoinen kommentti. Esittäjäksi voi valita listasta jonkin jo
+tietokannasta löytyvän esittäjän tai vaihtoehtoisesti syöttää kokonaan uuden.
+\item[Levyn tietojen muokkaaminen] Ylläpitäjä voi muokata kaikkia yksittäiseen
+levyyn liitettyjä tietoja.
+\item[Levyn poistaminen] Ylläpitäjä voi poistaa levyn tietokannasta.
+\item[Kirjautuminen ulos] Ylläpitäjä voi tarvittavat ylläpitotehtävät tehtyään
+kirjautua ulos, jolloin hänestä tulee vierailija.
 \end{description}
 
 \end{itemize}
