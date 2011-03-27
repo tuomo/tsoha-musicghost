@@ -8,10 +8,11 @@
 \usepackage{graphicx}
 \usepackage{float}
 
-\title{\includegraphics[width=5em]{logo}\\\vspace{1em}Levytietokanta\\
-  \large{Tietokantasovellus, kevät 2011}\\}
-\author{Tuomo Lempiäinen\\tuomo.lempiainen@helsinki.fi \and
-Hanna Nieminen\\hanna.m.nieminen@helsinki.fi}
+\title{\includegraphics[width=5em]{logo}\\\vspace{1em}MusicGhost\\\vspace{1em}
+  \large{Tietokantasovellus, kevät 2011\\Tietojenkäsittelytieteen
+  laitos\\Helsingin yliopisto}\\}
+\author{Tuomo Lempiäinen\\\texttt{tuomo.lempiainen@helsinki.fi} \and
+Hanna Nieminen\\\texttt{hanna.m.nieminen@helsinki.fi}}
 
 \begin{document}
 
@@ -93,14 +94,27 @@ kirjautua ulos, jolloin hänestä tulee vierailija.
 
 \section{Järjestelmän tietosisältö}
 
-\begin{figure}[htb]
+\begin{figure}[H]
 \begin{center}
-\leavevmode
 \includegraphics[width=\textwidth]{kasitekaavio}
 \end{center}
 \caption{Käsitekaavio}
-\label{fig:kasitekaavio}
 \end{figure}
+
+\begin{itemize}
+\item record
+\begin{description}
+\item[box\_status] Onko kyseessä normaali levy, boksi vai boksiin kuuluva levy?
+\item[type] Levyn tyyppi -- esimerkiksi albumi, single tai live.
+\item[first\_year] Levyn ensimmäinen julkaisuvuosi.
+\item[this\_year] Kokoelmassa olevan levyn julkaisuvuosi.
+\item[limited] Onko levy rajoitettua painosta?
+\item[ltd\_num] Rajoitetun painoksen painosmäärä.
+\item[added] Päivä, jolloin levy on lisätty kokoelmaan.
+\item[lent] Onko levy lainassa?
+\item[borrower] Henkilö, jolle levy on lainattu.
+\end{description}
+\end{itemize}
 
 \section{Käyttöliittymän hahmotelma}
 
@@ -148,6 +162,7 @@ kirjautua ulos, jolloin hänestä tulee vierailija.
 
 \section{Relaatiotietokantakaavio}
 
-Relaatiotietokantakaavio on esitetty CREATE TABLE -lauseina tiedostossa create\_tables.sql.
+Relaatiotietokantakaavio on esitetty \texttt{CREATE TABLE} -lauseina tiedostossa
+\texttt{create\_tables.sql}.
 
 \end{document}
