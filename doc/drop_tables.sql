@@ -1,0 +1,9 @@
+DROP TABLE record_list;
+DROP TABLE record;
+DROP TABLE label;
+DROP TABLE packaging;
+DROP TABLE format;
+DROP TABLE artist;
+DROP TABLE list;
+DROP TYPE box_status;
+DROP TYPE record_type;
