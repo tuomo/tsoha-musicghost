@@ -1,0 +1,125 @@
+body {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 0.8em;
+	color: rgb(0,0,0);
+	background: rgb(255,255,255);
+	text-align: center;
+	margin: 0px;
+	padding: 10px;
+	cursor: auto;
+	overflow: auto;
+	}
+a:link, a:active, a:visited {
+	cursor: auto;
+	color: rgb(125,100,198);
+	text-decoration: underline;
+	}
+a:hover {
+	cursor: pointer;
+	color: rgb(244,169,206);
+	text-decoration: underline;
+	}
+ul {
+	font-size: 0.9em;
+	list-style-type: disc;
+	line-height: 1.5em;
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+	}
+li {
+	list-style-type: disc;
+	padding: 0px;
+	margin-left: 130px;
+	}
+img.recordimage {
+	padding: 5px;
+}
+h1 {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 2.2em;
+	color: rgb(125,100,198);
+	line-height: 1.0em;
+	padding: 0px;
+	margin: 0px;
+	}
+h2 {
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 1.8em;
+	color: rgb(0,0,0);
+	line-height: 1.0em;
+	padding: 5px 20px 0px 0px;
+	margin: 0px;
+	text-align: left;
+	}
+p {
+	font-family: Tahoma, sans-serif;
+	font-size: 0.9em;
+	line-height: 1.5em;
+	padding: 5px;
+	margin: 0px;
+	text-align: center;
+	}
+.right {
+	text-align: right;
+	padding: 0px;
+}
+.left {
+	text-align: left;
+}
+table {
+	border: 0;
+	padding: 0px;
+	border-spacing: 2px;
+	font-size: 1.0em;
+}
+table.recordlist {
+	padding: 0px;
+	border-spacing: 2px;
+	border: 1px solid rgb(0,0,0);
+	background: rgb(186,173,223);
+}
+td {
+	border: 0;
+	padding: 2px;
+}
+td.recordlist {
+	border: 1px solid rgb(0,0,0);
+	vertical-align: top;
+	text-align: left;
+	background: rgb(216,210,235);
+}
+td.left {
+	text-align: left;
+}
+td.right {
+	text-align: right;
+}
+input {
+	border: 1px solid rgb(0,0,0);
+	background: rgb(216,210,235);
+}
+.button {
+	background: rgb(186,173,223);
+}
+textarea {
+	border: 1px solid rgb(0,0,0);
+	background: rgb(216,210,235);
+	font-family: Tahoma, sans-serif;
+	font-size: 1.0em;
+	line-height: 1.5em;
+	padding: 2px;
+	margin: 0px;
+	text-align: left;
+}
+select {
+	border: 1px solid rgb(0,0,0);
+	background: rgb(216,210,235);
+}
+#recordinfo {
+	background: rgb(216,210,235);
+	margin-left: 200px;
+	margin-right: 200px;
+	padding: 5px;
+	border: 1px solid rgb(0,0,0);
+}
