@@ -72,6 +72,8 @@ table {
 	padding: 0px;
 	border-spacing: 2px;
 	font-size: 1.0em;
+	margin-left: auto;
+	margin-right: auto;
 }
 table.recordlist {
 	padding: 0px;
@@ -123,3 +125,4 @@ select {
 	padding: 5px;
 	border: 1px solid rgb(0,0,0);
 }
+
