@@ -31,4 +31,10 @@ Atomik::set(array (
   'scripts' => 
   array (
   ),
+  'plugins/Db' =>
+  array (
+    'dsn' => 'pgsql:host=localhost;dbname=musicghost',
+    'username' => 'tuomo',
+    'password' => '',
+  ),
 ));
