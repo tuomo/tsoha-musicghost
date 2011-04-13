@@ -1,16 +1,18 @@
 Tuomo
 -----
-14.03.  2 h     Aloitustilaisuus
+14.03.  1,5 h   Aloitustilaisuus
 15.03.  0,5 h   Ohjaus
 16.03.  2 h     Määrittelyä ja dokumentointia
 18.03.  1 h     Dokumentointia ja Gitin säätöä
 20.03.  1 h     Dokumentointia
 22.03.  1 h     Ohjaus
-23.03.  2 h     Koulutustilaisuus
+23.03.  1,5 h   Koulutustilaisuus
 24.03.  1 h     Suunnittelua ja ympäristön ihmettelyä
 27.03.  7 h     Gitin ja Postgresin opiskelua, suunnittelua ja dokumentointia
-29.03.  2 h     Ohjaus
+29.03.  1,5 h   Ohjaus
 07.04.  1 h     Ympäristön säätämistä
-10.04.  4 h     Atomikiin tutustumista ja viewien säätöä
+10.04.  5 h     Atomikiin perehtymistä ja viewien säätöä
+12.04.  1,5 h   Ohjaus
+13.04.  3,5 h   Tietokantayhteyden ihmettelyä ja koodaamisen aloittelua
 -----
-Yht. 24,5 h
+Yht. 29 h
