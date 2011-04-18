@@ -1,16 +1,16 @@
 <?php
 
 Atomik::set(array (
-  'app' => 
+  'app' =>
   array (
     'layout' => '_layout',
     'default_action' => 'index',
-    'views' => 
+    'views' =>
     array (
       'file_extension' => '.phtml',
     ),
   ),
-  'atomik' => 
+  'atomik' =>
   array (
     'start_session' => true,
     'class_autoload' => true,
@@ -18,23 +18,39 @@ Atomik::set(array (
     'catch_errors' => true,
     'display_errors' => true,
     'debug' => true,
+    //'url_rewriting' => true,
   ),
-  'styles' => 
-  array (
-    0 => 'assets/css/main.css',
-  ),
-  'plugins' => 
+  'plugins' =>
   array (
     0 => 'Cache',
     1 => 'Db',
   ),
-  'scripts' => 
-  array (
-  ),
+  'style' => 'assets/css/style.css',
   'plugins/Db' =>
   array (
     'dsn' => 'pgsql:host=localhost;dbname=musicghost',
     'username' => 'tuomo',
     'password' => '',
   ),
+  'owner' => 'Example User',
+  'password' => 'secret',
+));
+
+Atomik::set('app/routes', array(
+    'info/:id' => array(
+        '@name' => 'info',
+        'action' => 'info'
+    ),
+    'login' => array(
+      '@name' => 'login',
+      'action' => 'login',
+    ),
+    'add' => array(
+      '@name' => 'add',
+      'action' => 'add',
+    ),
+    'edit/:id' => array(
+      '@name' => 'edit',
+      'action' => 'edit',
+    ),
 ));
