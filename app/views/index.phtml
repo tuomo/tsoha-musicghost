@@ -1,6 +1,6 @@
 <p class="right"><a href="login.html" title="">Login &raquo;</a></p>
 
-<h1>Owner's collection</h1>
+<h1><?php echo A('owner') ?>'s Music Collection</h1>
 <p>MusicGhost</p>
 
 <img src="<?php echo Atomik::appAsset('assets/images/logo.png') ?>"
@@ -40,7 +40,9 @@ title="" alt="" />
   <?php foreach ($records as $r): ?>
   <tr>
     <td class="recordlist"><?php echo $r['name'] ?></td>
-    <td class="recordlist"><?php echo $r['title'] ?></td>
+    <td class="recordlist">
+      <a href="<?php echo $r['url'] ?>"><?php echo $r['title'] ?></a>
+    </td>
     <td class="recordlist"><?php echo $r['first_year'] ?></td>
     <td class="recordlist"><?php echo $r['format'] ?></td>
   </tr>
