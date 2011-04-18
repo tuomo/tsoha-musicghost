@@ -13,6 +13,7 @@ Tuomo
 07.04.  1 h     Ympäristön säätämistä
 10.04.  5 h     Atomikiin perehtymistä ja viewien säätöä
 12.04.  1,5 h   Ohjaus
-13.04.  3,5 h   Tietokantayhteyden ihmettelyä ja koodaamisen aloittelua
+13.04.  5,5 h   Tietokantayhteyden ihmettelyä ja koodaamisen aloittelua
+18.04.  2 h     Loin routeja ja lisäsin levylistasta linkit infosivuille.
 -----
-Yht. 29 h
+Yht. 33 h
