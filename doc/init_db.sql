@@ -18,11 +18,13 @@ CREATE TABLE artist (
 );
 
 CREATE TABLE format (
-    name        TEXT PRIMARY KEY
+    id          SERIAL PRIMARY KEY,
+    name        TEXT NOT NULL
 );
 
 CREATE TABLE packaging (
-    name        TEXT PRIMARY KEY
+    id          SERIAL PRIMARY KEY,
+    name        TEXT NOT NULL
 );
 
 CREATE TABLE label (
@@ -57,3 +59,11 @@ CREATE TABLE record_list (
     list        INT REFERENCES list(id),
     PRIMARY KEY (record, list)
 );
+
+INSERT INTO list (name, public) VALUES ('Default', TRUE);
+
+INSERT INTO format (name) VALUES ('CD'), ('2CD'),
+    ('DVD'), ('2DVD'), ('CD+DVD'), ('DVD+CD');
+
+INSERT INTO packaging (name) VALUES ('Jewel case'), ('Digipack'),
+    ('Keep case'), ('Other');
