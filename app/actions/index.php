@@ -1,5 +1,8 @@
 <?php
 
+//Atomik::needed('session');
+require('session.php');
+
 $_stm = A('db:SELECT a.name, r.id, r.title, r.first_year, r.format '.
           'FROM artist a, record r WHERE a.id = r.artist');
 
@@ -11,10 +14,3 @@ foreach ($records as &$record) {
     $record['url'] = $url;
 }
 unset($record);
-
-if (A('session/logged_in', false)) {
-    $logged_in = true;
-}
-else {
-    $logged_in = false;
-}
