@@ -1,8 +1,10 @@
+<?php
+if (isset($debug)) print_r($debug);
+?>
 <h1>Add a record</h1>
 
 <p>
-<form action="" method="">
-
+<form action="<?php echo Atomik::url('@add'); ?>" method="post">
 
     <table>
       <tr>
@@ -22,29 +24,36 @@
 
       <tr>
         <td class="right">Type</td>
-        <td class="left"><select>
-            <option>Album</option>
-            <option>Single</option>
-            <option>etc</option>
-        </select></td>
+        <td class="left">
+            <select name="type">
+                <option>album</option>
+                <option>single</option>
+                <option>etc</option>
+            </select>
+        </td>
       </tr>
 
       <tr>
         <td class="right">Format</td>
-        <td class="left"><select>
-            <option>CD</option>
-            <option>2CD</option>
-            <option>DVD</option>
-        </select></td>
+        <td class="left">
+            <select name="format">
+                <option>CD</option>
+                <option>2CD</option>
+                <option>DVD</option>
+            </select>
+        </td>
       </tr>
 
       <tr>
         <td class="right">Case</td>
-        <td class="left"><select>
-            <option>something</option>
-            <option>here</option>
-            <option>etc</option>
-        </select></td>
+        <td class="left">
+            <select name="packaging">
+                <option>-- Not specified --</option>
+                <option>Jewel case</option>
+                <option>Digipack</option>
+                <option>Keep case</option>
+            </select>
+        </td>
       </tr>
 
       <tr>
@@ -53,14 +62,14 @@
           (optional)
         </td>
         <td class="left">
-          <textarea rows="4" cols="38"></textarea>
+          <textarea name="annotation" rows="4" cols="38"></textarea>
         </td>
       </tr>
 
     </table>
 
     <br />
-    <input class="button" name="submit" type="submit" value="Save" /> 
+    <input class="button" name="submit" type="submit" value="Save" />
     <input class="button" name="cancel" type="reset" value="Cancel" />
 
   </form>
