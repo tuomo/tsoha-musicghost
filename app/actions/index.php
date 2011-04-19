@@ -11,3 +11,10 @@ foreach ($records as &$record) {
     $record['url'] = $url;
 }
 unset($record);
+
+if (A('session/logged_in', false)) {
+    $logged_in = true;
+}
+else {
+    $logged_in = false;
+}

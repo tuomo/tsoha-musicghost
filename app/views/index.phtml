@@ -1,10 +1,14 @@
-<p class="right"><a href="login.html" title="">Login &raquo;</a></p>
+<p class="right"><?php if ($logged_in): ?>
+  <a href="<?php echo Atomik::url('@logout') ?>" title="">Logout</a>
+<?php else: ?>
+  <a href="<?php echo Atomik::url('@login') ?>" title="">Login &raquo;</a>
+<?php endif; ?></p>
 
 <h1><?php echo A('owner') ?>'s Music Collection</h1>
 <p>MusicGhost</p>
 
 <img src="<?php echo Atomik::appAsset('assets/images/logo.png') ?>"
-title="" alt="" />
+  title="" alt="" />
 
 <p>
 <form action="" method="">
@@ -26,7 +30,10 @@ title="" alt="" />
 </p>
 
 
-<p><a href="add.html" title="">Add a record &raquo;</a></p>
+<?php if ($logged_in): ?>
+<p><a href="<?php echo Atomik::url('@add') ?>"
+  title="">Add a record &raquo;</a></p>
+<?php endif; ?>
 
 <table class="recordlist">
   <thead>

@@ -45,6 +45,10 @@ Atomik::set('app/routes', array(
       '@name' => 'login',
       'action' => 'login',
     ),
+    'logout' => array(
+      '@name' => 'logout',
+      'action' => 'logout',
+    ),
     'add' => array(
       '@name' => 'add',
       'action' => 'add',
