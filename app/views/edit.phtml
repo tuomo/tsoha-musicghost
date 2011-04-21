@@ -1,27 +1,27 @@
 <h1>Edit the record</h1>
 
 <p>
-<form action="" method="">
+<form action="<?php echo Atomik::url('@edit', array('id' => $record['id'])); ?>" method="post">
 
 <table>
   <tr>
     <td class="right">Title</td>
-    <td class="left"><input name="title" type="text" size="40" value="Sample title" /></td>
+    <td class="left"><input name="title" type="text" size="40" value="<?php echo $record['title'] ?>" /></td>
   </tr>
 
   <tr>
     <td class="right">Artist</td>
-    <td class="left"><input name="artist" type="text" size="40" value="Sample artist" /></td>
+    <td class="left"><input name="artist" type="text" size="40" value="<?php echo $record['artist'] ?>" /></td>
   </tr>
 
   <tr>
     <td class="right">Year</td>
-    <td class="left"><input name="year" type="text" size="40" value="2011" /></td>
+    <td class="left"><input name="year" type="text" size="40" value="<?php echo $record['first_year'] ?>" /></td>
   </tr>
 
   <tr>
     <td class="right">Type</td>
-    <td class="left"><select>
+    <td class="left"><select name="type">
         <option>Album</option>
         <option>Single</option>
         <option>etc</option>
@@ -30,7 +30,7 @@
 
   <tr>
     <td class="right">Format</td>
-    <td class="left"><select>
+    <td class="left"><select name="format">
         <option>CD</option>
         <option>2CD</option>
         <option>DVD</option>
@@ -39,7 +39,7 @@
 
   <tr>
     <td class="right">Case</td>
-    <td class="left"><select>
+    <td class="left"><select name="packaging">
         <option>something</option>
         <option>here</option>
         <option>etc</option>
@@ -52,27 +52,29 @@
       (optional)
     </td>
     <td class="left">
-      <textarea rows="4" cols="38">
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      <textarea name="annotation" rows="4" cols="38">
+        <?php echo $record['annotation'] ?>
       </textarea>
     </td>
   </tr>
 
   <tr>
     <td class="right">Lent</td>
-    <td class="left"><input type="checkbox" name="lent" /></td>
+    <td class="left"><input type="checkbox" name="lent" value="lent" /></td>
   </tr>
 
   <tr>
     <td class="right">Borrower</td>
-    <td class="left"><input name="artist" type="text" size="40" value="" /></td>
+    <td class="left"><input name="borrower" type="text" size="40" value="nobody" /></td>
   </tr>
 
 </table>
 
-  <br />
-  <input class="button" name="submit" type="submit" value="Save" /> 
-  <input class="button" name="cancel" type="reset" value="Cancel" />
+<input type="hidden" name="id" value="<?php echo $record['id'] ?>">
 
+  <br />
+  <input class="button" name="submit" type="submit" value="Save" />
+  <input class="button" name="cancel" type="reset" value="Cancel" />
+  
 </form>
 </p>

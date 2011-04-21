@@ -10,7 +10,6 @@ $_stm = A('db:SELECT r.title, a.name AS artist, r.first_year, r.type, '.
 
 $record = $_stm->fetch();
 
-$url = Atomik::url('@edit', array('id' => $_id));
-$record['url'] = $url;
-
+$record['id'] = $_id;
+    
 ?>

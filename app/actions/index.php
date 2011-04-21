@@ -14,3 +14,5 @@ foreach ($records as &$record) {
     $record['url'] = $url;
 }
 unset($record);
+
+?>
