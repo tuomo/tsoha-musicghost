@@ -28,8 +28,8 @@ Atomik::set(array (
   'style' => 'assets/css/style.css',
   'plugins/Db' =>
   array (
-    'dsn' => 'pgsql:host=localhost;dbname=musicghost',
-    'username' => 'tuomo',
+    'dsn' => 'pgsql:host=localhost;dbname=hanna',
+    'username' => 'hanna',
     'password' => '',
   ),
   'owner' => 'Example User',
@@ -56,5 +56,9 @@ Atomik::set('app/routes', array(
     'edit/:id' => array(
       '@name' => 'edit',
       'action' => 'edit',
+    ),
+    'delete/:id' => array(
+      '@name' => 'delete',
+      'action' => 'delete',
     ),
 ));

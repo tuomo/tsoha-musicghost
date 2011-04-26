@@ -25,5 +25,18 @@
 
 <?php if ($logged_in): ?>
 <p><a href="<?php echo $record['url'] ?>" title="">Edit record &raquo;</a> |
-<a href="" title="">Delete record &raquo;</a></p>
+<a href="#" onclick="confirmDeleting();return false;" title="">Delete record &raquo;</a></p>
 <?php endif; ?>
+
+<script type="text/javascript">
+    function confirmDeleting() {
+        var selection;
+        selection = confirm("Do you really want to delete this record?");
+        if(selection) {
+            window.location = '<?php echo $record['deleting'] ?>';
+        }
+        else {
+            return;
+        }
+    }
+</script>
