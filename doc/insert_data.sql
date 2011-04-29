@@ -40,5 +40,5 @@ INSERT INTO record (
     FALSE
 );
 
-INSERT INTO record_list (record, list) VALUES (4, 'Default');
-INSERT INTO record_list (record, list) VALUES (5, 'Default');
+INSERT INTO record_list (record, list) VALUES (1, 'Default');
+INSERT INTO record_list (record, list) VALUES (2, 'Default');
