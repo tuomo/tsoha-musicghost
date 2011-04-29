@@ -1,6 +1,6 @@
 <?php
 
-require('init.php');
+require_once('init.php');
 
 $_stm = $_db->query(
     'SELECT a.name, r.id, r.title, r.first_year, r.format '.

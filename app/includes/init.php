@@ -9,7 +9,7 @@ function requireLoggedIn()
     }
 }
 
-require('db.php');
+require_once('db.php');
 
 $logo = Atomik::appAsset('assets/images/logo.png');
 $loggedIn = A('session/logged_in', false);
