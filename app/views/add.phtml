@@ -1,76 +1,88 @@
-<?php
-if (isset($debug)) print_r($debug);
-?>
 <h1>Add a record</h1>
 
 <p>
 <form action="<?php echo Atomik::url('@add'); ?>" method="post">
 
-    <table>
-      <tr>
-        <td class="right">Title</td>
-        <td class="left"><input name="title" type="text" size="40" /></td>
-      </tr>
+  <table>
+    <tr>
+      <td class="right">Title</td>
+      <td class="left"><input name="title" type="text" size="40" /></td>
+    </tr>
 
-      <tr>
-        <td class="right">Artist</td>
-        <td class="left"><input name="artist" type="text" size="40" /></td>
-      </tr>
+    <tr>
+      <td class="right">Artist</td>
+      <td class="left">
+        <select name="artist">
+          <?php foreach ($artists as $a): ?>
+          <option><?php echo $a ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-      <tr>
-        <td class="right">Year</td>
-        <td class="left"><input name="year" type="text" size="40" /></td>
-      </tr>
+    <tr>
+      <td class="right"></td>
+      <td class="left"><input name="new_artist" type="text" size="40" /></td>
+    </tr>
 
-      <tr>
-        <td class="right">Type</td>
-        <td class="left">
-            <select name="type">
-                <option>album</option>
-                <option>single</option>
-                <option>etc</option>
-            </select>
-        </td>
-      </tr>
+    <tr>
+      <td class="right">Year (first release)</td>
+      <td class="left"><input name="first_year" type="text" size="40" /></td>
+    </tr>
 
-      <tr>
-        <td class="right">Format</td>
-        <td class="left">
-            <select name="format">
-                <option>CD</option>
-                <option>2CD</option>
-                <option>DVD</option>
-            </select>
-        </td>
-      </tr>
+    <tr>
+      <td class="right">Year (this release)</td>
+      <td class="left"><input name="this_year" type="text" size="40" /></td>
+    </tr>
 
-      <tr>
-        <td class="right">Case</td>
-        <td class="left">
-            <select name="packaging">
-                <option>-- Not specified --</option>
-                <option>Jewel case</option>
-                <option>Digipack</option>
-                <option>Keep case</option>
-            </select>
-        </td>
-      </tr>
+    <tr>
+      <td class="right">Type</td>
+      <td class="left">
+        <select name="type">
+          <?php foreach ($types as $t): ?>
+          <option><?php echo $t ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-      <tr>
-        <td class="right">
-          Annotation<br />
-          (optional)
-        </td>
-        <td class="left">
-          <textarea name="annotation" rows="4" cols="38"></textarea>
-        </td>
-      </tr>
+    <tr>
+      <td class="right">Format</td>
+      <td class="left">
+        <select name="format">
+          <?php foreach ($formats as $f): ?>
+          <option><?php echo $f ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-    </table>
+    <tr>
+      <td class="right">Packaging</td>
+      <td class="left">
+        <select name="packaging">
+          <?php foreach ($packagings as $p): ?>
+          <option><?php echo $p ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-    <br />
-    <input class="button" name="submit" type="submit" value="Save" />
-    <input class="button" name="cancel" type="reset" value="Cancel" />
+    <tr>
+      <td class="right">
+        Annotation<br />
+        (optional)
+      </td>
+      <td class="left">
+        <textarea name="annotation" rows="4" cols="38"></textarea>
+      </td>
+    </tr>
 
-  </form>
-  </p>
+  </table>
+
+  <br />
+  <input class="button" name="submit" type="submit" value="Save" />
+  <input class="button" name="cancel" type="reset" value="Cancel" />
+
+</form>
+</p>
