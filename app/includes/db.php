@@ -1,5 +1,6 @@
 <?php
 
+/*
 function getDbColumn($db, $column, $table, $sortcolumn = NULL)
 {
     if (is_null($sortcolumn)) {
@@ -10,12 +11,15 @@ function getDbColumn($db, $column, $table, $sortcolumn = NULL)
     //$result = $db->query('SELECT ? FROM ? ORDER BY ?', array('name', 'format', 'name'));
     $result = $db->query("SELECT $column FROM $table ORDER BY $sortcolumn");
 
+    $rows = array();
+
     foreach($result as $row) {
         $rows[] = $row[$column];
     }
 
     return $rows;
 }
+*/
 
 require('config.user.php');
 
