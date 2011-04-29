@@ -34,6 +34,7 @@ CREATE TABLE record (
     id          SERIAL PRIMARY KEY,
     artist      INT REFERENCES artist(id) NOT NULL,
     title       TEXT NOT NULL,
+    box_set     BOOLEAN NOT NULL,
     box_id      INT REFERENCES record(id),
     type        TEXT REFERENCES type(name) NOT NULL,
     first_year  INT,
