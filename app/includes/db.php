@@ -1,5 +1,22 @@
 <?php
 
+function getDbColumn($db, $column, $table, $sortcolumn = NULL)
+{
+    if (is_null($sortcolumn)) {
+        $sortcolumn = $column;
+    }
+
+    // FIXME
+    //$result = $db->query('SELECT ? FROM ? ORDER BY ?', array('name', 'format', 'name'));
+    $result = $db->query("SELECT $column FROM $table ORDER BY $sortcolumn");
+
+    foreach($result as $row) {
+        $rows[] = $row[$column];
+    }
+
+    return $rows;
+}
+
 require('config.user.php');
 
 $_dsn = 'pgsql:host='.A('config/db/host').';dbname='.A('config/db/dbname');
