@@ -14,6 +14,9 @@ Tuomo
 10.04.  5 h     Atomikiin perehtymistä ja viewien säätöä
 12.04.  1,5 h   Ohjaus
 13.04.  5,5 h   Tietokantayhteyden ihmettelyä ja koodaamisen aloittelua
-18.04.  2 h     Loin routeja ja lisäsin levylistasta linkit infosivuille.
+18.04.  2 h     Levylistasta linkit infosivuille
+19.04.  6 h     Kirjautumisen ja lisäyssivun toteutus sekä demotilaisuus
+22.04.  0,5 h   Debuggausta
+29.04.  9 h     Koodausta ja säätöä
 -----
-Yht. 33 h
+Yht. 48,5 h
