@@ -1,10 +1,11 @@
 <?php
 
-//Atomik::needed('session');
-require('session.php');
+require('init.php');
 
-$_stm = A('db:SELECT a.name, r.id, r.title, r.first_year, r.format '.
-          'FROM artist a, record r WHERE a.id = r.artist');
+$_stm = $_db->query(
+    'SELECT a.name, r.id, r.title, r.first_year, r.format '.
+    'FROM artist a, record r WHERE a.id = r.artist'
+);
 
 $records = $_stm->fetchAll();
 

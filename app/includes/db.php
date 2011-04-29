@@ -2,8 +2,6 @@
 
 require('config.user.php');
 
-$loggedIn = A('session/logged_in', false);
-
 $_dsn = 'pgsql:host='.A('config/db/host').';dbname='.A('config/db/dbname');
 $_user = A('config/db/user');
 $_pass = A('config/db/pass');
