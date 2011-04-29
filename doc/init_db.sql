@@ -1,11 +1,5 @@
-CREATE TYPE record_type AS ENUM ('album', 'single', 'EP', 'compilation',
-    'soundtrack', 'interview', 'live', 'other');
-
-CREATE TYPE box_status AS ENUM ('normal', 'box', 'item');
-
 CREATE TABLE list (
-    id          SERIAL PRIMARY KEY,
-    name        TEXT NOT NULL,
+    name        TEXT PRIMARY KEY,
     public      BOOLEAN NOT NULL
 );
 
@@ -17,14 +11,16 @@ CREATE TABLE artist (
     annotation  TEXT
 );
 
+CREATE TABLE type (
+    name        TEXT PRIMARY KEY
+);
+
 CREATE TABLE format (
-    id          SERIAL PRIMARY KEY,
-    name        TEXT NOT NULL
+    name        TEXT PRIMARY KEY
 );
 
 CREATE TABLE packaging (
-    id          SERIAL PRIMARY KEY,
-    name        TEXT NOT NULL
+    name        TEXT PRIMARY KEY
 );
 
 CREATE TABLE label (
@@ -38,13 +34,12 @@ CREATE TABLE record (
     id          SERIAL PRIMARY KEY,
     artist      INT REFERENCES artist(id) NOT NULL,
     title       TEXT NOT NULL,
-    box_status  box_status NOT NULL,
     box_id      INT REFERENCES record(id),
-    type        record_type NOT NULL,
+    type        TEXT REFERENCES type(name) NOT NULL,
     first_year  INT,
     this_year   INT,
-    format      INT REFERENCES format(id),
-    packaging   INT REFERENCES packaging(id),
+    format      TEXT REFERENCES format(name),
+    packaging   TEXT REFERENCES packaging(name),
     label       INT REFERENCES label(id),
     limited     BOOLEAN,
     ltd_num     INT,
@@ -56,9 +51,12 @@ CREATE TABLE record (
 
 CREATE TABLE record_list (
     record      INT REFERENCES record(id),
-    list        INT REFERENCES list(id),
+    list        TEXT REFERENCES list(name),
     PRIMARY KEY (record, list)
 );
+
+INSERT INTO type (name) VALUES ('Album'), ('Single'), ('EP'), ('Compilation'),
+    ('Soundtrack'), ('Interview'), ('Live'), ('Other');
 
 INSERT INTO list (name, public) VALUES ('Default', TRUE);
 
