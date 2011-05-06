@@ -1,4 +1,4 @@
-<p class="right"><?php if ($loggedIn): ?>
+<p class="right"><?php if ($logged_in): ?>
   <a href="<?php echo Atomik::url('@logout') ?>" title="">Logout</a>
 <?php else: ?>
   <a href="<?php echo Atomik::url('@login') ?>" title="">Login &raquo;</a>
@@ -28,7 +28,7 @@
 </p>
 
 
-<?php if ($loggedIn): ?>
+<?php if ($logged_in): ?>
 <p><a href="<?php echo Atomik::url('@add') ?>"
   title="">Add a record &raquo;</a></p>
 <?php endif; ?>

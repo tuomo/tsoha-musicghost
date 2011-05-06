@@ -1,9 +1,9 @@
 <?php
 
-function requireLoggedIn()
+function require_logged_in()
 {
-    $loggedIn = A('session/logged_in', false);
-    if (!$loggedIn) {
+    $logged_in = A('session/logged_in', false);
+    if (!$logged_in) {
         Atomik::redirect('@login');
         Atomik::end();
     }
@@ -12,7 +12,7 @@ function requireLoggedIn()
 require_once('db.php');
 
 $logo = Atomik::appAsset('assets/images/logo.png');
-$loggedIn = A('session/logged_in', false);
+$logged_in = A('session/logged_in', false);
 $name = A('config/name');
 
 ?>

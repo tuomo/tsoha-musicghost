@@ -2,7 +2,7 @@
 
 require_once('init.php');
 
-requireLoggedIn();
+require_logged_in();
 
 $artists = $_db->query('SELECT id, name FROM artist ORDER BY sortname')
     ->fetchAll();
