@@ -1,80 +1,136 @@
-<h1>Edit the record</h1>
+<h1>Edit a record</h1>
 
 <p>
 <form action="<?php echo Atomik::url('@edit', array('id' => $record['id'])); ?>" method="post">
 
-<table>
-  <tr>
-    <td class="right">Title</td>
-    <td class="left"><input name="title" type="text" size="40" value="<?php echo $record['title'] ?>" /></td>
-  </tr>
+  <table>
+    <tr>
+      <td class="right">Artist</td>
+      <td class="left">
+        <select name="artist_id">
+          <?php foreach ($artists as $a): ?>
+          <option value="<?php echo $a['id'] ?>" <?php if($record['artist_id'] == $a['id']){echo 'selected="selected"';} ?>><?php echo $a['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-  <tr>
-    <td class="right">Artist</td>
-    <td class="left"><input name="artist" type="text" size="40" value="<?php echo $record['artist'] ?>" /></td>
-  </tr>
+    <tr>
+      <td class="right">Title</td>
+      <td class="left"><input name="title" type="text" size="40" value="<?php echo $record['title'] ?>" /></td>
+    </tr>
 
-  <tr>
-    <td class="right">Year</td>
-    <td class="left"><input name="year" type="text" size="40" value="<?php echo $record['first_year'] ?>" /></td>
-  </tr>
+    <tr>
+      <td class="right">Box set</td>
+      <td class="left">
+        <input name="boxset" type="radio" value="normal" <?php if($record['box_set'] == 'normal'){echo 'checked="checked"';} ?> />Normal
+        <input name="boxset" type="radio" value="boxset" <?php if($record['box_set'] == 'boxset'){echo 'checked="checked"';} ?> />Box set
+        <input name="boxset" type="radio" value="item" <?php if($record['box_set'] == 'item'){echo 'checked="checked"';} ?> />Part of a box set
+      </td>
+    </tr>
 
-  <tr>
-    <td class="right">Type</td>
-    <td class="left"><select name="type">
-        <option>Album</option>
-        <option>Single</option>
-        <option>etc</option>
-    </select></td>
-  </tr>
+    <tr>
+      <td class="right"></td>
+      <td class="left">
+        <select name="box_id">
+          <?php foreach ($boxsets as $b): ?>
+          <option value="<?php echo $b['id'] ?>" <?php if($record['box_id'] == $b['id']){echo 'selected="selected"';} ?>><?php echo $b['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-  <tr>
-    <td class="right">Format</td>
-    <td class="left"><select name="format">
-        <option>CD</option>
-        <option>2CD</option>
-        <option>DVD</option>
-    </select></td>
-  </tr>
+    <tr>
+      <td class="right">Type</td>
+      <td class="left">
+        <select name="type">
+          <?php foreach ($types as $t): ?>
+          <option <?php if($record['type'] == $t['name']){echo 'selected="selected"';} ?>><?php echo $t['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-  <tr>
-    <td class="right">Case</td>
-    <td class="left"><select name="packaging">
-        <option>something</option>
-        <option>here</option>
-        <option>etc</option>
-    </select></td>
-  </tr>
+    <tr>
+      <td class="right">Year (first release)</td>
+      <td class="left"><input name="first_year" type="text" size="40" value="<?php echo $record['first_year'] ?>" /></td>
+    </tr>
 
-  <tr>
-    <td class="right">
-      Annotation<br />
-      (optional)
-    </td>
-    <td class="left">
-      <textarea name="annotation" rows="4" cols="38">
-        <?php echo $record['annotation'] ?>
-      </textarea>
-    </td>
-  </tr>
+    <tr>
+      <td class="right">Year (this release)</td>
+      <td class="left"><input name="this_year" type="text" size="40" value="<?php echo $record['this_year'] ?>" /></td>
+    </tr>
 
-  <tr>
-    <td class="right">Lent</td>
-    <td class="left"><input type="checkbox" name="lent" value="lent" /></td>
-  </tr>
+    <tr>
+      <td class="right">Format</td>
+      <td class="left">
+        <select name="format">
+          <?php foreach ($formats as $f): ?>
+          <option <?php if($record['format'] == $f['name']){echo 'selected="selected"';} ?>><?php echo $f['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-  <tr>
-    <td class="right">Borrower</td>
-    <td class="left"><input name="borrower" type="text" size="40" value="nobody" /></td>
-  </tr>
+    <tr>
+      <td class="right">Packaging</td>
+      <td class="left">
+        <select name="packaging">
+          <?php foreach ($packagings as $p): ?>
+          <option <?php if($record['packaging'] == $p['name']){echo 'selected="selected"';} ?>><?php echo $p['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-</table>
+    <tr>
+      <td class="right">Label</td>
+      <td class="left">
+        <select name="label_id">
+          <?php foreach ($labels as $l): ?>
+          <option value="<?php echo $l['id'] ?>" <?php if($record['label_id'] == $l['id']){echo 'selected="selected"';} ?>><?php echo $l['name'] ?></option>
+          <?php endforeach; ?>
+        </select>
+      </td>
+    </tr>
 
-<input type="hidden" name="id" value="<?php echo $record['id'] ?>">
+    <tr>
+      <td class="right">Limited</td>
+      <td class="left">
+        <input name="limited" type="checkbox" value="limited" <?php if($record['limited'] == true){echo 'checked="checked"';} ?>>
+        <input name="ltd_num" type="text" size="10" value="<?php if($record['limited'] == true){echo $record['ltd_num'];} ?>" />
+      </td>
+    </tr>
 
+    <tr>
+      <td class="right">Added</td>
+      <td class="left">
+        <input name="added" type="text" size="20" value="<?php echo $record['added'] ?>" /> (yyyy-mm-dd)
+      </td>
+    </tr>
+
+    <tr>
+      <td class="right">Lent</td>
+      <td class="left">
+        <input name="lent" type="checkbox" value="lent" <?php if($record['lent'] == true){echo 'checked="checked"';} ?>> to
+        <input name="borrower" type="text" size="30" value="<?php if($record['lent'] == true){echo $record['borrower'];} ?>" />
+      </td>
+    </tr>
+
+    <tr>
+      <td class="right">Annotation</td>
+      <td class="left">
+        <textarea name="annotation" rows="4" cols="38"><?php echo $record['annotation'] ?></textarea>
+      </td>
+    </tr>
+
+  </table>
+
+  <input type="hidden" name="id" value="<?php echo $record['id'] ?>">
+  
   <br />
   <input class="button" name="submit" type="submit" value="Save" />
   <input class="button" name="cancel" type="reset" value="Cancel" />
-  
+
 </form>
 </p>

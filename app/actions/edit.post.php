@@ -1,39 +1,43 @@
 <?php
+    $artist_id = $_POST['artist_id'];
     $title = $_POST['title'];
-    $artist = $_POST['artist'];
-    $year = $_POST['year'];
+    if($_POST['boxset'] == 'normal'){
+        $box_set = false;
+    }
+    elseif($_POST['boxset'] == 'boxset'){
+        $box_set = true;
+    }
+    elseif($_POST['boxset'] == 'item'){
+        $box_set = false;
+        $box_id = $_POST['box_id'];
+    }
     $type = $_POST['type'];
+    $first_year = $_POST['first_year'];
+    $this_year = $_POST['this_year'];
     $format = $_POST['format'];
     $packaging = $_POST['packaging'];
+    $label_id = $_POST['label_id'];
+    if(empty($_POST['limited'])){
+        $limited = false;
+    }
+    else{
+        $limited = true;
+    }
+    $ltd_num = $_POST['ltd_num'];
+    $added = $_POST['added'];
+    if(empty($_POST['lent'])){
+        $lent = false;
+    }
+    else{
+        $lent = true;
+    }
+    $borrower = $_POST['borrower'];
     $annotation = $_POST['annotation'];
-    if ($_POST['lent'] = 'checked') {
-        $lent = 'true';
-    }
-    else {
-        $lent = 'false';
-    }
-    $borrower = $_POST['borrower'];    
     $_id = $_POST['id'];
-    
-    if ($
 
 // lomakekenttien tarkistus
 
-    $artist_id = 0;
-    if ($result = Atomik_db::find('artist', array('name' => $artist))) {
-        $row = $result->fetch();
-        $artist_id = $row['id'];
-    }
-    else {
-        $result = Atomik_db::query('INSERT INTO artist (name, sortname) VALUES (?, ?) '.
-            'RETURNING id', array($artist, $artist));
-        $row = $result->fetch();
-        $artist_id = $row['id'];
-    }
-
-    $debug[1] = Atomik_Db::update('record', array('title' => $title, 'artist' => $artist_id,
-        'first_year' => $year, 'type' => $type, 'annotation' => $annotation,
-        'box_status' => 'normal', 'lent' => $lent), array('id' => $_id));
+    Atomik_Db::update('record', array('artist' => $artist_id, 'title' => $title, 'box_set' => $box_set, 'box_id' => $box_id, 'type' => $type, 'first_year' => $first_year, 'this_year' => $this_year, 'format' => $format, 'packaging' => $packaging, 'label' => $label_id, 'limited' => $limited, 'ltd_num' => $ltd_num, 'added' => $added, 'lent' => $lent, 'borrower' => $borrower, 'annotation' => $annotation), array('id' => $_id));
 
     Atomik::redirect('index');
 ?>
