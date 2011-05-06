@@ -1,19 +1,18 @@
 <?php
 
-require('session.php');
+require_once('init.php');
 
 $_id = A('request/id');
 
-$_stm = A('db:SELECT r.title, a.name AS artist, r.first_year, r.type, '.
-    'r.format, r.annotation FROM artist a, record r '.
-    'WHERE a.id = r.artist AND r.id = ? ', array($_id));
-
-$record = $_stm->fetch();
+$record = $_db->query(
+    'SELECT a.name AS artist, l.name AS label, r.title, r.box_set, r.box_id, r.type, '.
+    'r.first_year, r.this_year, r.format, r.packaging, r.limited, '.
+    'r.ltd_num, r.added, r.lent, r.borrower, r.annotation '.
+    'FROM artist a, record r LEFT OUTER JOIN label l ON (l.id = r.label) '.
+    'WHERE a.id = r.artist AND r.id = ?',
+    array($_id)
+)->fetch();
 
 $record['id'] = $_id;
-$url = Atomik::url('@edit', array('id' => $_id));
-$record['url'] = $url;
-$deleting = Atomik::url('@delete', array('id' => $_id));
-$record['deleting'] = $deleting;
 
 ?>

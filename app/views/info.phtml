@@ -2,38 +2,83 @@
 
 <div id="recordinfo">
 
+  <h2><?php echo $record['artist'], ' - ', $record['title'] ?></h2>
+
   <img class="recordimage"
     src="<?php echo Atomik::appAsset('assets/images/sampleimage.png') ?>"
     alt="" title="" align="left" />
 
-  <h2><?php echo $record['title'] ?></h2>
-
-  <p class="left">
-  <ul>
-    <li><?php echo $record['artist'] ?></li>
-    <li><?php echo $record['first_year'] ?></li>
-    <li><?php echo $record['type'] ?></li>
-    <li><?php echo $record['format'] ?></li>
-  </ul>
-  </p>
-
-  <p class="left">
-  <?php echo $record['annotation'] ?>
-  </p>
+  <table>
+    <tr>
+      <td class="right">Year:</td>
+      <td class="left"><?php echo $record['first_year'], ' / ', $record['this_year'] ?></td>
+    </tr>
+    <tr>
+      <td class="right">Type:</td>
+      <td class="left"><?php echo $record['type'] ?></td>
+    </tr>
+    <tr>
+      <td class="right">Format:</td>
+      <td class="left"><?php echo $record['format'] ?></td>
+    </tr>
+    <tr>
+      <td class="right">Packaging:</td>
+      <td class="left"><?php echo $record['packaging'] ?></td>
+    </tr>
+    <tr>
+      <td class="right">Label:</td>
+      <td class="left"><?php echo $record['label'] ?></td>
+    </tr>
+    <?php if (isset($record['limited'])): ?>
+    <tr>
+      <td class="right">Limited:</td>
+      <td class="left">
+        <?php if (isset($record['ltd_num'])):
+            echo $record['ltd_num'], ' copies';
+        else:
+            echo 'Yes';
+        endif; ?>
+      </td>
+    </tr>
+    <?php endif; ?>
+    <tr>
+      <td class="right">Added:</td>
+      <td class="left"><?php echo $record['added'] ?></td>
+    </tr>
+    <tr>
+      <td class="right">Lent:</td>
+      <td class="left">
+        <?php if ($record['lent'] && isset($record['borrower'])):
+            echo 'Yes, to ', $record['borrower'];
+        elseif ($record['lent']):
+            echo 'Yes';
+        else:
+            echo 'No';
+        endif; ?>
+      </td>
+    </tr>
+    <tr>
+      <td class="right">Annotation:</td>
+      <td class="left"><?php echo $record['annotation'] ?></td>
+    </tr>
+  </table>
 
 </div>
 
 <?php if ($logged_in): ?>
-<p><a href="<?php echo $record['url'] ?>" title="">Edit record &raquo;</a> |
-<a href="#" onclick="confirmDeleting();return false;" title="">Delete record &raquo;</a></p>
+<p>
+  <a href="<?php echo Atomik::url('@edit', array('id' => $record['id'])) ?>"
+    title="">Edit record &raquo;</a> |
+  <a href="#" onclick="confirmDelete();return false;" title="">Delete record &raquo;</a>
+</p>
 <?php endif; ?>
 
 <script type="text/javascript">
-    function confirmDeleting() {
+    function confirmDelete() {
         var selection;
         selection = confirm("Do you really want to delete this record?");
         if(selection) {
-            window.location = '<?php echo $record['deleting'] ?>';
+            window.location = '<?php echo Atomik::url('@delete', array('id' => $record['id'])) ?>';
         }
         else {
             return;
