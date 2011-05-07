@@ -37,7 +37,7 @@ img.recordimage {
 	margin: 8px;
 	border: 1px solid rgb(0,0,0);
 	background: rgb(255,255,255);
-}
+	}
 h1 {
 	font-family: Trebuchet MS, sans-serif;
 	font-size: 1.8em;
@@ -66,10 +66,10 @@ p {
 .right {
 	text-align: right;
 	padding: 0px;
-}
+	}
 .left {
 	text-align: left;
-}
+	}
 table.form {
 	border: 0;
 	padding: 0px;
@@ -77,7 +77,7 @@ table.form {
 	font-size: 1.0em;
 	margin-left: auto;
 	margin-right: auto;
-}
+	}
 table.recordlist {
 	padding: 0px;
 	border-spacing: 2px;
@@ -85,30 +85,30 @@ table.recordlist {
 	background: rgb(157,138,212);
 	margin-left: auto;
 	margin-right: auto;
-}
+	}
 td {
 	border: 0;
 	padding: 2px;
-}
+	}
 td.recordlist {
 	border: 1px solid rgb(0,0,0);
 	vertical-align: top;
 	text-align: left;
 	background: rgb(216,210,235);
-}
+	}
 td.left {
 	text-align: left;
-}
+	}
 td.right {
 	text-align: right;
-}
+	}
 input {
 	border: 1px solid rgb(0,0,0);
 	background: rgb(216,210,235);
-}
+	}
 .button {
 	background: rgb(186,173,223);
-}
+	}
 textarea {
 	border: 1px solid rgb(0,0,0);
 	background: rgb(216,210,235);
@@ -118,11 +118,11 @@ textarea {
 	padding: 2px;
 	margin: 0px;
 	text-align: left;
-}
+	}
 select {
 	border: 1px solid rgb(0,0,0);
 	background: rgb(216,210,235);
-}
+	}
 #recordinfo {
 	background: rgb(216,210,235);
 	margin-left: auto;
@@ -130,5 +130,67 @@ select {
 	width: 50%;
 	padding: 5px;
 	border: 1px solid rgb(0,0,0);
-}
-
+	}
+#navigation {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: -2px;
+	padding: 0;
+	}
+#navigation ul {
+	font-size: 1.0em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	}
+#navigation li {
+	line-height: 0em;
+	display: inline;
+	margin: 0;
+	padding-left: 0;
+	list-style-type: none;
+	}
+#navigation a {
+	font-size: 1.0em;
+	color: rgb(0,0,0);
+	text-decoration: none;
+	background: rgb(186,173,223);
+	padding: 0 1em 0 1em;
+	margin: 0;
+	border: 1px solid rgb(0,0,0);
+	}
+#navigation a:hover {
+	background: rgb(198,100,151);
+	text-decoration: none;
+	}
+#selected  a{
+	font-size: 1.0em;
+	color: rgb(0,0,0);
+	text-decoration: none;
+	font-weight: bold;
+	background: rgb(216,210,235);
+	padding: 0 1em 0 1em;
+	margin: 0;
+	border-bottom: 1px solid rgb(216,210,235);
+	}
+#selected a:hover {
+	background: rgb(216,210,235);
+	text-decoration: none;
+	}
+#controlpanel {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0px;
+	background: rgb(216,210,235);
+	border: 1px solid rgb(0,0,0);
+	}
+#container {
+	background: rgb(255,255,255);
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	padding: 5px;
+	}
