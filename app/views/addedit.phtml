@@ -1,0 +1,135 @@
+<h1><?php echo $heading ?></h1>
+
+<p>
+  <form action="<?php echo $action ?>" method="post">
+    <table class="form">
+
+      <tr>
+        <td class="right">*Artist</td>
+        <td class="left">
+          <select name="artist_id">
+            <?php echo $this->options($artists, $old_artist) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">*Title</td>
+        <td class="left"><input name="title" type="text" size="40"
+        value="<?php echo $old_title ?>" /></td>
+      </tr>
+
+      <tr>
+        <td class="right">*Box set</td>
+        <td class="left">
+          <input name="boxset" type="radio" value="normal"
+          <?php if ($old_boxset == 'normal') echo 'checked="checked"' ?>
+          />Normal
+          <input name="boxset" type="radio" value="boxset"
+          <?php if ($old_boxset == 'boxset') echo 'checked="checked"' ?>
+          />Box set
+          <input name="boxset" type="radio" value="item"
+          <?php if ($old_boxset== 'item') echo 'checked="checked"' ?>
+          />Part of a box set
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right"></td>
+        <td class="left">
+          <select name="box_id">
+            <?php echo $this->options($boxsets, $old_boxid) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">*Type</td>
+        <td class="left">
+          <select name="type">
+            <?php echo $this->options($types, $old_type) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Year</td>
+        <td class="left"><input name="first_year" type="text" size="5"
+        value="<?php echo $old_first_year ?>" /> (first release)</td>
+      </tr>
+
+      <tr>
+        <td class="right">Year</td>
+        <td class="left"><input name="this_year" type="text" size="5"
+        value="<?php echo $old_this_year ?>" /> (this release)</td>
+      </tr>
+
+      <tr>
+        <td class="right">Format</td>
+        <td class="left">
+          <select name="format">
+            <?php echo $this->options($formats, $old_format) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Packaging</td>
+        <td class="left">
+          <select name="packaging">
+            <?php echo $this->options($packagings, $old_packaging) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Label</td>
+        <td class="left">
+          <select name="label_id">
+            <?php echo $this->options($labels, $old_label) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Limited</td>
+        <td class="left">
+          <input name="limited" type="checkbox" value="limited"
+          <?php if ($old_limited) echo 'checked="checked" ' ?>/> to
+          <input name="ltd_num" type="text" size="10"
+          value="<?php echo $old_ltd_num ?>" /> copies
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Added</td>
+        <td class="left">
+          <input name="added" type="text" size="20"
+          value="<?php echo $old_added ?>" /> (yyyy-mm-dd)
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Lent</td>
+        <td class="left">
+          <input name="lent" type="checkbox" value="lent"
+          <?php if ($old_lent) echo 'checked="checked" ' ?>/> to
+          <input name="borrower" type="text" size="30"
+          value="<?php echo $old_borrower ?>" />
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Annotation</td>
+        <td class="left">
+          <textarea name="annotation" rows="4" cols="38">
+          <?php echo $old_annotation ?></textarea>
+        </td>
+      </tr>
+
+    </table>
+    <br />
+    <input class="button" name="submit" type="submit" value="Save" />
+    <input class="button" name="reset" type="reset" value="Reset" />
+  </form>
+</p>
