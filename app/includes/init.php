@@ -1,5 +1,7 @@
 <?php
 
+require_once('db.php');
+
 function require_logged_in()
 {
     $logged_in = A('session/logged_in', false);
@@ -9,10 +11,8 @@ function require_logged_in()
     }
 }
 
-require_once('db.php');
-
-$logo = Atomik::appAsset('assets/images/logo.png');
 $logged_in = A('session/logged_in', false);
+$logo = Atomik::appAsset('assets/images/logo.png');
 $name = A('config/name');
 
 ?>

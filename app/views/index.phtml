@@ -29,8 +29,12 @@
 
 
 <?php if ($logged_in): ?>
-<p><a href="<?php echo Atomik::url('@add') ?>"
-  title="">Add a record &raquo;</a></p>
+<p>
+  <a href="<?php echo Atomik::url('@add') ?>"
+  title="">Add a record &raquo;</a> |
+  <a href="<?php echo Atomik::url('@control') ?>"
+  title="">Control panel &raquo;</a>
+</p>
 <?php endif; ?>
 
 <table class="recordlist">

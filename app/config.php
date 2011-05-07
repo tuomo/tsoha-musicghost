@@ -29,6 +29,10 @@ Atomik::set(array (
 ));
 
 Atomik::set('app/routes', array(
+    '/' => array(
+        '@name' => 'index',
+        'action' => 'index'
+    ),
     'info/:id' => array(
         '@name' => 'info',
         'action' => 'info'
@@ -43,15 +47,21 @@ Atomik::set('app/routes', array(
     ),
     'add' => array(
         '@name' => 'add',
-        'action' => 'add',
+        'action' => 'addedit',
+        'operation' => 'add',
     ),
     'edit/:id' => array(
         '@name' => 'edit',
-        'action' => 'edit',
+        'action' => 'addedit',
+        'operation' => 'edit',
     ),
     'delete/:id' => array(
         '@name' => 'delete',
         'action' => 'delete',
+    ),
+    'control' => array(
+        '@name' => 'control',
+        'action' => 'control',
     ),
 ));
 
