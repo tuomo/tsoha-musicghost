@@ -2,13 +2,13 @@
 
 require('config.user.php');
 
-$_dsn = 'pgsql:host='.A('config/db/host').';dbname='.A('config/db/dbname');
-$_user = A('config/db/user');
-$_pass = A('config/db/pass');
+$dsn = 'pgsql:host='.A('config/db/host').';dbname='.A('config/db/dbname');
+$user = A('config/db/user');
+$pass = A('config/db/pass');
 
-$_db = Atomik_Db::createInstance('db', $_dsn, $_user, $_pass);
+$db = Atomik_Db::createInstance('db', $dsn, $user, $pass);
 
-$_db->connect();
-$_db->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->connect();
+$db->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 ?>

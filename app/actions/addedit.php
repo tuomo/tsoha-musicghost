@@ -6,34 +6,34 @@ require_logged_in();
 
 Atomik::setView('addedit');
 
-$_operation = A('request/operation');
+$operation = A('request/operation');
 
-$_values['artist'] = $_db->query('SELECT id, name FROM artist ORDER BY sortname')->fetchAll();
-$_boxsets = $_db->query(
+$values['artist'] = $db->query('SELECT id, name FROM artist ORDER BY sortname')->fetchAll();
+$boxsets = $db->query(
     'SELECT a.name, r.id, r.title '.
     'FROM artist a, record r WHERE r.box_set IS TRUE AND a.id = r.artist '.
     'ORDER BY a.sortname, r.title'
 )->fetchAll();
-$_values['boxset'] = array();
-foreach ($_boxsets as $_b) {
-    $_name = $_b['name'].' - '.$_b['title'];
-    $_values['boxset'][] = array('id' => $_b['id'], 'name' => $_name);
+$values['boxset'] = array();
+foreach ($boxsets as $b) {
+    $name = $b['name'].' - '.$b['title'];
+    $values['boxset'][] = array('id' => $b['id'], 'name' => $name);
 }
-$_values['type'] = $_db->query('SELECT name AS id, name FROM type')->fetchAll();
-$_values['format'] = $_db->query('SELECT name AS id, name FROM format')->fetchAll();
-$_values['packaging'] = $_db->query('SELECT name AS id, name FROM packaging')->fetchAll();
-$_values['label'] = $_db->query('SELECT id, name FROM label ORDER BY name')->fetchAll();
+$values['type'] = $db->query('SELECT name AS id, name FROM type')->fetchAll();
+$values['format'] = $db->query('SELECT name AS id, name FROM format')->fetchAll();
+$values['packaging'] = $db->query('SELECT name AS id, name FROM packaging')->fetchAll();
+$values['label'] = $db->query('SELECT id, name FROM label ORDER BY name')->fetchAll();
 
-$_values = escape_values($_values);
+$values = escape_values($values);
 
-$_empty = array('id' => NULL, 'name' => NULL);
+$empty = array('id' => NULL, 'name' => NULL);
 
-$artists = array_merge(array($_empty), $_values['artist']);
-$boxsets = array_merge(array($_empty), $_values['boxset']);
-$types = array_merge(array($_empty), $_values['type']);
-$formats = array_merge(array($_empty), $_values['format']);
-$packagings = array_merge(array($_empty), $_values['packaging']);
-$labels = array_merge(array($_empty), $_values['label']);
+$artists = array_merge(array($empty), $values['artist']);
+$boxsets = array_merge(array($empty), $values['boxset']);
+$types = array_merge(array($empty), $values['type']);
+$formats = array_merge(array($empty), $values['format']);
+$packagings = array_merge(array($empty), $values['packaging']);
+$labels = array_merge(array($empty), $values['label']);
 
 $old_artist = NULL;
 $old_title = NULL;
@@ -52,25 +52,25 @@ $old_lent = FALSE;
 $old_borrower = NULL;
 $old_annotation = NULL;
 
-if ($_operation === 'add') {
+if ($operation === 'add') {
 
     $heading = 'Add a new record';
     $action = Atomik::url('@add');
 
 } else {
 
-    $_id = A('request/id');
+    $id = A('request/id');
 
     $heading = 'Edit a record';
-    $action = Atomik::url('@edit', array('id' => $_id));
+    $action = Atomik::url('@edit', array('id' => $id));
 
-    $old = $_db->query(
+    $old = $db->query(
         'SELECT a.id AS artist, l.id AS label, r.title, r.box_set, r.box_id, '.
         'r.type, r.first_year, r.this_year, r.format, r.packaging, r.limited, '.
         'r.ltd_num, r.added, r.lent, r.borrower, r.annotation '.
         'FROM artist a, record r LEFT OUTER JOIN label l ON (l.id = r.label) '.
         'WHERE a.id = r.artist AND r.id = ?',
-        array($_id)
+        array($id)
     )->fetch();
 
     $old_artist = $old['artist'];

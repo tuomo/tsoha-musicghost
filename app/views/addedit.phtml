@@ -1,12 +1,15 @@
 <h1><?php echo $heading ?></h1>
 
-<?php if (TRUE):
+<?php
+$errors = A('flash:error');
+if (count($errors) > 0):
   echo '<p>The following errors were detected:</p><ul>';
-  foreach (A('flash:error') as $msg):
+  foreach ($errors as $msg):
     echo "<li>$msg</li>";
   endforeach;
   echo '</ul>';
-endif; ?>
+endif;
+?>
 
 <p>
   <form action="<?php echo $action ?>" method="post">
