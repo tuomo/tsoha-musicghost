@@ -1,6 +1,7 @@
 CREATE TABLE list (
     name        TEXT PRIMARY KEY,
-    public      BOOLEAN NOT NULL
+    public      BOOLEAN NOT NULL,
+    "default"   BOOLEAN NOT NULL
 );
 
 CREATE TABLE artist (
@@ -59,7 +60,7 @@ CREATE TABLE record_list (
 INSERT INTO type (name) VALUES ('Album'), ('Single'), ('EP'), ('Compilation'),
     ('Soundtrack'), ('Interview'), ('Live'), ('Other');
 
-INSERT INTO list (name, public) VALUES ('Default', TRUE);
+INSERT INTO list (name, public, "default") VALUES ('Collection', TRUE, TRUE);
 
 INSERT INTO format (name) VALUES ('CD'), ('2CD'),
     ('DVD'), ('2DVD'), ('CD+DVD'), ('DVD+CD');

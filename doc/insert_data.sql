@@ -40,5 +40,7 @@ INSERT INTO record (
     FALSE
 );
 
-INSERT INTO record_list (record, list) VALUES (1, 'Default');
-INSERT INTO record_list (record, list) VALUES (2, 'Default');
+INSERT INTO list (name, public, "default")
+    VALUES ('Shopping list', FALSE, FALSE);
+INSERT INTO record_list (record, list) VALUES (1, 'Collection');
+INSERT INTO record_list (record, list) VALUES (2, 'Collection');
