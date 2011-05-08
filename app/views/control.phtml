@@ -1,0 +1,45 @@
+<h1>Control panel</h1>
+
+<div id="container">
+
+  <div id="navigation">
+    <ul>
+      <?php foreach ($tabs as $t):
+        $url = Atomik::url('@control', array('tab' => $t['id']));
+        echo '<li';
+        if ($tab == $t['id']) echo ' id="selected"';
+        echo "><a href=\"$url\" title=\"\">{$t['name']}</a></li>";
+      endforeach; ?>
+    </ul>
+  </div>
+  <div id="controlpanel">
+    <form action="" method="post">
+      <p>
+        <select name="artist">
+          <?php //echo $this->options($artists, $selected_artist) ?>
+        </select>
+        <input class="button" name="submit" type="submit" value="Show" />
+      </p>
+
+      <table class="form">
+        <tr>
+          <td class="right">*Name</td>
+          <td class="left"><input name="name" type="text" size="40"
+          value="<?php echo $form_name ?>" /></td>
+        </tr>
+        <tr>
+          <td class="right">Homepage</td>
+          <td class="left"><input name="homepage" type="text" size="40"
+          value="<?php echo $form_homepage ?>" /></td>
+        </tr>
+        <tr>
+          <td class="right">Annotation</td>
+          <td class="left">
+            <textarea name="annotation" rows="4" cols="38"><?php echo $form_annotation ?></textarea>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+</div>
