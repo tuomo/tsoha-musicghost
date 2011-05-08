@@ -1,0 +1,17 @@
+JOHDANTO
+
+Järjestelmän tarkoitus
+
+Järjestelmän avulla sen ylläpitäjä voi pitää kirjaa levykokoelmastaan. Järjestelmään on mahdollista luoda useita erillisiä listoja, jolloin on mahdollista erotella esimerkiksi omistamansa levyt ja tulevat hankinnat toisistaan. Vierailijat voivat selata levylistaa ja yksittäisten levyjen tietoja. Levyjä on mahdollista hakea tietokannasta hakulomakkeen avulla.
+
+Toimintaympäristö
+
+Järjestelmää käytetään WWW-selaimen kautta. Sen ajamiseen tarvitaan Apache-palvelin varustettuna PHP5-tulkilla sekä PostgreSQL-tietokanta.
+
+Rajaukset
+
+Kaikki ominaisuudet, joita ei ole tässä dokumentissa erikseen mainittu, on oletusarvoisesti rajattu järjestelmän ulkopuolelle.
+
+Toteutusympäristö
+
+Yllättäen järjestelmä toteutetaan sen toimintaympäristössä, eli käyttäen Apachea, PHP:ta ja PostgreSQL:ää.

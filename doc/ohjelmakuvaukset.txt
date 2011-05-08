@@ -15,15 +15,18 @@ Ohjelman parametrit:
 
 -> Atomikin session??
 
+
 logout.php__________________________________
 
 Ohjelma k‰ynnistet‰‰n etusivulta linkki‰ logout klikkaamalla. Ohjelma kirjaa k‰ytt‰j‰n ulos (Atomikin session)?? ja ohjaa k‰ytt‰j‰n takaisin etusivulle (index.html).
+
 
 add.php____________________________________
 
 Ohjelma auttaa generoimaan levyjen lis‰‰missivun (add.html). K‰ynnistyksen yhteydess‰ ei v‰litet‰ parametreja. Ohjelma k‰ynnistyy etusivulta linkki‰ add a record klikkaamalla (muuttuuko viel‰??).
 
-Ohjelma tarkistaa ensin, onko k‰ytt‰j‰ kirjautunut sis‰‰n.?? Sen j‰lkeen tehd‰‰n tietokantakyselyt, joilla haetaan kaikkien esitt‰jien id:t taulusta artist (ja j‰rjestet‰‰n ne sortnamen ?? mukaan), kaikki eri boxsetit (?? ˆh), kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypi taulusta packaging ja kaikki levy-yhtiˆiden id:t taulusta label (ja j‰rjestet‰‰n ne nimen mukaan).
+Ohjelma tarkistaa ensin, onko k‰ytt‰j‰ kirjautunut sis‰‰n.?? Sen j‰lkeen tehd‰‰n tietokantakyselyt, joilla haetaan kaikkien esitt‰jien id:t taulusta artist (ja j‰rjestet‰‰n ne sortnamen ?? mukaan), kaikki eri boxsetit (??), kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypi taulusta packaging ja kaikki levy-yhtiˆiden id:t taulusta label (ja j‰rjestet‰‰n ne nimen mukaan).
+
 
 add.post.php________________________________
 
@@ -32,8 +35,8 @@ Ohjelma k‰ynnistet‰‰n levyjen lis‰‰missivulta (add.html) k‰sittelem‰‰n lis‰yslom
 Ohjelman parametrit:
 	artist (esitt‰j‰): kokonaisluku (id jollekin tietokannasta lˆytyv‰lle esitt‰j‰lle, jotka on lueteltu alasvetovalikossa)
 	title (levyn nimi): merkkijono
-	boxset (??): merkkijono (normal, boxset tai item)
-	box-id (??): kokonaisluku
+	boxset (onko levy normaali, boksi vai boksiin kuuluva levy): merkkijono (normal, boxset tai item)
+	box_id (??): kokonaisluku
 	type (tyyppi): merkkijono (album, single, EP, compilation, soundtrack, interview, live tai other)
 	year (first release) (ensimm‰isen julkaisun vuosi): kokonaisluku
 	year (this release) (ko. levyn julkaisuvuosi): kokonaisluku
@@ -41,13 +44,14 @@ Ohjelman parametrit:
 	packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep case tai other)
 	label (levy-yhtiˆ): kokonaisluku (id jollekin levy-yhtiˆlle, jotka on lueteltu alasvetovalikossa)
 	limited (onko rajoitettu painos): boolean
-	ltd_num (rajoitetun painoksen numero): kokonaisluku
+	ltd_num (rajoitetun painoksen painosm‰‰r‰): kokonaisluku
 	added (lis‰ysp‰iv‰m‰‰r‰): date
 	lent (onko levy lainassa): boolean
 	borrower (lainaajan nimi): merkkijono
 	annotation (kuvaus levyst‰): merkkijono
 
 + mitk‰ pakollisia parametreja??
+
 
 info.php____________________________________
 
@@ -57,17 +61,20 @@ Ohjelma k‰ynnistet‰‰n etusivulta (index.html) klikkaamalla jonkin levyn nime‰, j
 
 Ohjelma tekee tietokantakyselyn, jolla haetaan taulusta record levyn tiedot (nimi, onko osa boxia, boxin id ??, tyyppi, julkaisuvuodet, formaatti, kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen numero, lis‰ysp‰iv‰m‰‰r‰, onko lainattu, lainaajan nimi, levyn kuvaus), taulusta artist levyn esitt‰j‰n nimi, kotisivu ja kuvaus sek‰ taulusta label levy-yhtiˆn nimi, kotisivu ja kuvaus.
 
+
 delete.php__________________________________
 
 Ohjelma k‰ynnistet‰‰n levyn infosivulta (info.html) klikkaamalla delete record -linkki‰ ja valitsemalla ilmestyv‰st‰ varmistusikkunasta ok-painike. Ohjelman parametrina v‰litet‰‰n poistettavan levyn id.
 
 Ohjelma tarkistaa ensin, ett‰ k‰ytt‰j‰ on kirjautunut sis‰‰n, poistaa levyn tietokannasta ja ohjaa k‰ytt‰j‰n takaisin etusivulle.
 
+
 edit.php____________________________________
 
 Ohjelma auttaa generoimaan levyn muokkaussivun (edit.html). K‰ynnistyksen yhteydess‰ v‰litet‰‰n parametrina muokattavan levyn id. Ohjelma k‰ynnistyy levyn infosivulta linkki‰ edit record klikkaamalla (muuttuuko viel‰??).
 
 Ohjelma tarkistaa ensin, onko k‰ytt‰j‰ kirjautunut sis‰‰n.?? Sen j‰lkeen tehd‰‰n tietokantakyselyt, joilla haetaan kaikkien esitt‰jien id:t taulusta artist (ja j‰rjestet‰‰n ne sortnamen ?? mukaan), kaikki eri boxsetit (?? ˆh), kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypi taulusta packaging ja kaikki levy-yhtiˆiden id:t taulusta label (ja j‰rjestet‰‰n ne nimen mukaan). N‰iden lis‰ksi tehd‰‰n viel‰ tietokantakysely, jossa haetaan taulusta record levyn tiedot (nimi, onko osa boxia, boxin id ??, tyyppi, julkaisuvuodet, formaatti, kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen numero, lis‰ysp‰iv‰m‰‰r‰, onko lainattu, lainaajan nimi, levyn kuvaus), taulusta artist levyn esitt‰j‰n nimi ja id sek‰ taulusta label levy-yhtiˆn nimi ja id.
+
 
 edit.post.php________________________________
 
@@ -76,8 +83,8 @@ Ohjelma k‰ynnistet‰‰n levyn muokkasivulta (edit.html) k‰sittelem‰‰n muokkausloma
 Ohjelman parametrit:
 	artist (esitt‰j‰): kokonaisluku (id jollekin tietokannasta lˆytyv‰lle esitt‰j‰lle, jotka on lueteltu alasvetovalikossa)
 	title (levyn nimi): merkkijono
-	boxset (??): merkkijono (normal, boxset tai item)
-	box-id (??): kokonaisluku
+	boxset (onko levy normaali, boksi vai boksiin kuuluva levy): merkkijono (normal, boxset tai item)
+	box_id (??): kokonaisluku
 	type (tyyppi): merkkijono (album, single, EP, compilation, soundtrack, interview, live tai other)
 	year (first release) (ensimm‰isen julkaisun vuosi): kokonaisluku
 	year (this release) (ko. levyn julkaisuvuosi): kokonaisluku
@@ -85,7 +92,7 @@ Ohjelman parametrit:
 	packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep case tai other)
 	label (levy-yhtiˆ): kokonaisluku (id jollekin levy-yhtiˆlle, jotka on lueteltu alasvetovalikossa)
 	limited (onko rajoitettu painos): boolean
-	ltd_num (rajoitetun painoksen numero): kokonaisluku
+	ltd_num (rajoitetun painoksen painosm‰‰r‰): kokonaisluku
 	added (lis‰ysp‰iv‰m‰‰r‰): date
 	lent (onko levy lainassa): boolean
 	borrower (lainaajan nimi): merkkijono
@@ -94,4 +101,5 @@ Ohjelman parametrit:
 + mitk‰ pakollisia parametreja??
 
 
-+++ info.html-sivulla oleva javascript-koodinp‰tk‰???
+++ addedit.php ja addedit.post.php ??
+
