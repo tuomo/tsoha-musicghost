@@ -1,5 +1,13 @@
 <h1><?php echo $heading ?></h1>
 
+<?php if (TRUE):
+  echo '<p>The following errors were detected:</p><ul>';
+  foreach (A('flash:error') as $msg):
+    echo "<li>$msg</li>";
+  endforeach;
+  echo '</ul>';
+endif; ?>
+
 <p>
   <form action="<?php echo $action ?>" method="post">
     <table class="form">
@@ -7,7 +15,7 @@
       <tr>
         <td class="right">*Artist</td>
         <td class="left">
-          <select name="artist_id">
+          <select name="artist">
             <?php echo $this->options($artists, $old_artist) ?>
           </select>
         </td>
@@ -37,7 +45,7 @@
       <tr>
         <td class="right"></td>
         <td class="left">
-          <select name="box_id">
+          <select name="boxid">
             <?php echo $this->options($boxsets, $old_boxid) ?>
           </select>
         </td>
@@ -85,7 +93,7 @@
       <tr>
         <td class="right">Label</td>
         <td class="left">
-          <select name="label_id">
+          <select name="label">
             <?php echo $this->options($labels, $old_label) ?>
           </select>
         </td>
@@ -122,8 +130,7 @@
       <tr>
         <td class="right">Annotation</td>
         <td class="left">
-          <textarea name="annotation" rows="4" cols="38">
-          <?php echo $old_annotation ?></textarea>
+          <textarea name="annotation" rows="4" cols="38"><?php echo $old_annotation ?></textarea>
         </td>
       </tr>
 

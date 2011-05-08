@@ -1,7 +1,6 @@
 <?php
 
 require_once('init.php');
-require_once('addedit.php');
 
 require_logged_in();
 
@@ -9,7 +8,24 @@ Atomik::setView('addedit');
 
 $_operation = A('request/operation');
 
-$_values = get_record_field_values($_db);
+$_values['artist'] = $_db->query('SELECT id, name FROM artist ORDER BY sortname')->fetchAll();
+$_boxsets = $_db->query(
+    'SELECT a.name, r.id, r.title '.
+    'FROM artist a, record r WHERE r.box_set IS TRUE AND a.id = r.artist '.
+    'ORDER BY a.sortname, r.title'
+)->fetchAll();
+$_values['boxset'] = array();
+foreach ($_boxsets as $_b) {
+    $_name = $_b['name'].' - '.$_b['title'];
+    $_values['boxset'][] = array('id' => $_b['id'], 'name' => $_name);
+}
+$_values['type'] = $_db->query('SELECT name AS id, name FROM type')->fetchAll();
+$_values['format'] = $_db->query('SELECT name AS id, name FROM format')->fetchAll();
+$_values['packaging'] = $_db->query('SELECT name AS id, name FROM packaging')->fetchAll();
+$_values['label'] = $_db->query('SELECT id, name FROM label ORDER BY name')->fetchAll();
+
+$_values = escape_values($_values);
+
 $_empty = array('id' => NULL, 'name' => NULL);
 
 $artists = array_merge(array($_empty), $_values['artist']);
@@ -58,26 +74,41 @@ if ($_operation === 'add') {
     )->fetch();
 
     $old_artist = $old['artist'];
-    $old_title = $old['title'];
+    $old_title = Atomik::escape($old['title']);
     if ($old['box_set']) {
         $old_boxset = 'boxset';
     } elseif (!is_null($old['box_id'])) {
         $old_boxset = 'item';
         $old_boxid = $old['box_id'];
     }
-    $old_type = $old['type'];
+    $old_type = Atomik::escape($old['type']);
     $old_first_year = $old['first_year'];
     $old_this_year = $old['this_year'];
-    $old_format = $old['format'];
-    $old_packaging = $old['packaging'];
+    $old_format = Atomik::escape($old['format']);
+    $old_packaging = Atomik::escape($old['packaging']);
     $old_label = $old['label'];
     $old_limited = $old['limited'];
     $old_ltd_num = $old['ltd_num'];
     $old_added = $old['added'];
     $old_lent = $old['lent'];
-    $old_borrower = $old['borrower'];
-    $old_annotation = $old['annotation'];
+    $old_borrower = Atomik::escape($old['borrower']);
+    $old_annotation = Atomik::escape($old['annotation']);
 
+}
+
+function escape_values($values)
+{
+    $result = array();
+    foreach ($values as $key => $val) {
+        $esc_val = array();
+        foreach ($val as $item) {
+            $id = Atomik::escape($item['id']);
+            $name = Atomik::escape($item['name']);
+            $esc_val[] = array('id' => $id, 'name' => $name);
+        }
+        $result[$key] = $esc_val;
+    }
+    return $result;
 }
 
 ?>
