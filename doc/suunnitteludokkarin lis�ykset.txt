@@ -1,0 +1,75 @@
+Järjestelmän tietosisältö
+
+
+record
+
+Omistajan levykokoelmaan kuuluva levy. Levy identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. Levyyn liittyy sen esittäjä, levy-yhtiö, tyyppi, formaatti ja kotelon tyyppi. Lisäksi levy voi kuulua mielivaltaiseen määrään listoja.
+
+title (merkkijono): Levyn nimi.
+box_set (totuusarvo): Onko kyseessä normaali levy, boksi vai boksiin kuuluva levy?
+first_year (kokonaisluku): Levyn ensimmäinen julkaisuvuosi.
+this_year (kokonaisluku): Kokoelmassa olevan levyn julkaisuvuosi.
+limited (totuusarvo): Onko levy rajoitettua painosta?
+ltd_num (kokonaisluku): Rajoitetun painoksen painosmäärä.
+added (päivämäärä): Päivä, jolloin levy on lisätty kokoelmaan.
+lent (totuusarvo): Onko levy lainassa?
+borrower (merkkijono): Henkilö, jolle levy on lainattu.
+annotation (merkkijono): Vapaavalintainen kuvaus levystä.
+
+
+artist (esittäjän tiedot)
+
+Levyn esittäjä identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. Esittäjä voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Esittäjän nimi.
+sortname Nimi, jota käytetään esittäjien järjestämiseen.
+homepage Esittäjän kotisivu.
+annotation Vapaavalintainen kuvaus esittäjästä.
+
+
+label (levy-yhtiön tiedot)
+
+Levy-yhtiö identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. Levy-yhtiö voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levy-yhtiön nimi
+homepage Levy-yhtiön kotisivu.
+annotation Vapaavalintainen kuvaus levy-yhtiöstä.
+
+
+type
+
+Levytyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn tyyppi (esim. album, single, EP).
+
+
+format
+
+Levyformaatti voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn formaatti (esim. CD, 2CD, DVD)
+
+
+packaging
+
+Kotelotyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn kotelon tyyppi (esim. jewel case, digipack, keep case)
+
+
+list (??)
+
+Lista, johon voi liittyä mielivaltainen määrä levyjä. Lista identifioidaan sen yksikäsitteisen nimen perusteella.
+
+name Listan nimi
+public Onko lista julkinen?
+"default" ??
+
+
+record_list (??)
+-??
+
+
+
+-----------------------------------------------
+
