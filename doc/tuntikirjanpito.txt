@@ -20,3 +20,28 @@ Tuomo
 29.04.  9 h     Koodausta ja säätöä
 -----
 Yht. 48,5 h
+
+Hanna
+-----
+14.03.  1,5 h   Aloitustilaisuus
+15.03.  0,5 h   Ohjaus
+16.03.  2 h     Määrittelyä ja dokumentointia
+18.03.  1 h     Dokumentointia, Git
+20.03.  1 h     Dokumentointia
+22.03.  1 h     Ohjaus
+24.03.  1 h     Suunnittelua
+27.03.  3 h     Logo, ER-kaavio
+29.03.  2 h		Ohjaus
+05.04.	2 h		Ohjaus
+09.04.  4 h     Views ja css
+12.04.  3 h     Viewssien säätöä, ohjaus
+13.04.  3 h		Viewssien säätöä, favicon
+19.04.  2 h     Demo
+22.04.	4 h		Lähinnä editoimistoimintoa + vähän muidenkin aloittelua
+25.04.	1 h		Css-tiedoston säätöä
+26.04.	5 h		Poistamistoiminto JavaScript-varmistuksineen + muuta säätöä
+06.05.	3 h		Editoimistoiminnon säätöä
+07.05.	6 h		Infosivun säätöä, kontrollipaneelin ulkoasua
+08.05.	10 h	Dokumentointia
+-----
+Yht. 56 h
