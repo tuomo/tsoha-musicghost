@@ -1,0 +1,85 @@
+SIVUKUVAUKSET
+
+index.html_______________________________________________
+
+Etusivu
+
+Generoitu html-sivu, jonka tuottaa ohjelma index.php. Kuva sivusta liitteenä X.
+
+Sivuun liittyvät tiedostot:
+	logo.png: levytietokannan logo
+
+Etusivulla on tiivis listaus käyttäjän tietokannassa olevista levyistä (levyistä näytetään esittäjä, nimi, julkaisuvuosi ja formaatti), hakukenttä sekä valikko, jonka avulla voidaan tarkastella eri listoille luokiteltuja levyjä. Hakukentän käsittelee ohjelma search.php ja listauksen näyttämisen ohjelma list.php (esim.). Tietokannan levyjen listauksessa jokaisen levyn nimi toimii linkkinä kyseisen levyn infosivulle. Lisäksi sivulla on seuraavat linkit:
+
+Sisäänkirjautumattomalle käyttäjälle:
+
+	login (kirjaudu sisään)
+		vie sisäänkirjautumissivulle (login.html)
+
+Sisäänkirjautuneelle käyttäjälle:
+
+	logout (kirjaudu ulos)
+		kirjaa käyttäjän ulos
+
+	add a record (lisää levy)
+		vie levyn lisäämiseen käytettävälle sivulle (add.html)
+
+	control panel (hallintapaneeli)
+		vie tietokannan hallintapaneelina toimivalle sivulle (controlpanel.html)
+
+
+
+login.html__________________________________________________
+
+Sisäänkirjautumissivu
+
+Staattinen html-sivu (no, melko staattinen, onhan sielläkin kyllä hitusen php:tä, öh?), tiedosto login.html. Kuva sivusta liitteenä X.
+
+Sivulla on kenttä salasanan kirjoittamista varten sekä ok-painike. Painiketta painettaessa ohjelma login.post.php käsittelee lomakkeen. Isoja ja pieniä kirjaimia ei tulkita samoiksi.
+
+add.html___________________________________________________
+
+Levyjen lisäyssivu
+
+Generoitu html-sivu, jonka tuottaa ohjelma add.php. Kuva sivusta liitteenä X.
+
+Sivulla on lomake, jossa on kentät Artist (esittäjä), Title (levyn nimi), Box set (??), Type (tyyppi), Year (first release) (ensimmäisen julkaisun vuosi), Year (this release) (ko. levyn julkaisuvuosi), Format (formaatti), Packaging (kotelon tyyppi), Label (levy-yhtiö), Limited (rajoitettu painos, rajoitetun painoksen numero), Added (lisäyspäivämäärä), Lent (onko levy lainassa ja lainaajan nimi) ja Annotation (kuvaus levystä). Lomakkeen tiedot lähettää nappi Save ja tyhjentää nappi Cancel. Lomakkeen käsittelee ohjelma add.post.php. Sivu tarttis kai takaisin edelliselle sivulle -linkin...??
+
+info.html_______________________________________________________
+
+Levyn infosivu
+
+Generoitu html-sivu, jonka tuottaa ohjelma info.php. Kuva sivusta liitteenä X.
+
+Sivuun liittyvät tiedostot
+	levyn kansikuva??
+
+Sivulla on levyn kansikuva (??) sekä levyn esittäjän, levyn ja levy-yhtiön tietokannasta löytyvät tiedot (esittäjän nimi, esittäjän kotisivu, kuvaus esittäjästä, levyn julkaisuvuodet (alkuperäinen ja kyseisen levyn julkaisuvuosi), tyyppi, formaatti, kotelon tyyppi, lisäyspäivämäärä, tieto siitä, onko levy lainattu ja kenelle, kuvaus levystä, levy-yhtiön nimi, levy-yhtiön kotisivu ja kuvaus levy-yhtiöstä).
+
+Sisäänkirjautuneelle käyttäjälle näytetään lisäksi linkit:
+
+	edit record (muokkaa levyä)
+		vie levyn muokkaamissivulle (edit.html)
+
+	delete record (poista levy)
+		Varmistaa ilmoitusikkunassa, haluaako käyttäjä todella poistaa levyn. Jos käyttäjä klikkaa ok-painiketta, ohjelma delete.php poistaa levyn tietokannasta ja ohjaa käyttäjän sen jälkeen etusivulle. Cancel-painikkeen klikkaaminen ei aiheuta mitään.
+
+(Lisäksi sivulla on em. linkit esittäjän ja levy-yhtiön kotisivuille, mikäli ne on laitettu tietokantaan.)
+
+edit.html_______________________________________________________
+
+Levynmuokkaussivu.
+
+Generoitu html-sivu, jonka tuottaa ohjelma edit.php. Kuva sivusta liitteenä X.
+
+Sivulla on lomake, jossa on kentät Artist (esittäjä), Title (levyn nimi), Box set (??), Type (tyyppi), Year (first release) (ensimmäisen julkaisun vuosi), Year (this release) (ko. levyn julkaisuvuosi), Format (formaatti), Packaging (kotelon tyyppi), Label (levy-yhtiö), Limited (rajoitettu painos, rajoitetun painoksen numero), Added (lisäyspäivämäärä), Lent (onko levy lainassa ja lainaajan nimi) ja Annotation (kuvaus levystä). Lomake on esitäytetty tietokannasta löytyvillä vanhoilla tiedoilla. Lomakkeen tiedot lähettää nappi Save ja tyhjentää nappi Cancel. Lomakkeen käsittelee ohjelma edit.post.php. Sivu tarttis kai takaisin edelliselle sivulle -linkin...??
+
+controlpanel.html________________________________________________
+
+Levytietokannan hallintapaneeli
+
+Generoitu html-sivu, jonka tuottaa ohjelma X.php. Kuva sivusta liitteenä X.
+
+-välilehdet
+-...
+

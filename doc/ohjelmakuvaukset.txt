@@ -1,0 +1,97 @@
+OHJELMAKUVAUKSET
+
+index.php___________________________________
+
+Ohjelma auttaa generoimaan tietokantasovelluksen etusivun (index.html). Käynnistyksen yhteydessä ei välitetä parametreja??
+
+Ohjelma tekee tietokantakyselyn, jolla haetaan taulusta record jokaisen levyn id, nimi, alkuperäinen julkaisuvuosi ja formaatti sekä taulusta artist levyn esittäjän nimi. Ohjelma myös generoi jokaista levyä vastaavan infosivun urlin. (??)
+
+login.post.php_______________________________
+
+Ohjelma käynnistetään sisäänkirjautumissivulta (login.html) käsittelemään kirjautumislomake. ?? Ohjelma tarkistaa käyttäjän käyttöoikeuden tämän syöttämän salasanan perusteella. Jos annettu salasana on oikea, generoidaan sivu index.html, jolla näkyy myös ylläpitoon tarvittavat linkit. Jos salasana on väärä, ei tehdä mitään?? 
+
+Ohjelman parametrit:
+	password (salasana): merkkijono
+
+-> Atomikin session??
+
+logout.php__________________________________
+
+Ohjelma käynnistetään etusivulta linkkiä logout klikkaamalla. Ohjelma kirjaa käyttäjän ulos (Atomikin session)?? ja ohjaa käyttäjän takaisin etusivulle (index.html).
+
+add.php____________________________________
+
+Ohjelma auttaa generoimaan levyjen lisäämissivun (add.html). Käynnistyksen yhteydessä ei välitetä parametreja. Ohjelma käynnistyy etusivulta linkkiä add a record klikkaamalla (muuttuuko vielä??).
+
+Ohjelma tarkistaa ensin, onko käyttäjä kirjautunut sisään.?? Sen jälkeen tehdään tietokantakyselyt, joilla haetaan kaikkien esittäjien id:t taulusta artist (ja järjestetään ne sortnamen ?? mukaan), kaikki eri boxsetit (?? öh), kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypi taulusta packaging ja kaikki levy-yhtiöiden id:t taulusta label (ja järjestetään ne nimen mukaan).
+
+add.post.php________________________________
+
+Ohjelma käynnistetään levyjen lisäämissivulta (add.html) käsittelemään lisäyslomake. Ohjelma tarkistaa käyttäjän lomakkeelle syöttämät tiedot ja antaa tarvittaessa virheilmoituksen (pitääkö nämäkin selostaa??). Kelvolliset parametrit saatuaan ohjelma lisää tauluun record käyttäjän haluaman levyn.
+
+Ohjelman parametrit:
+	artist (esittäjä): kokonaisluku (id jollekin tietokannasta löytyvälle esittäjälle, jotka on lueteltu alasvetovalikossa)
+	title (levyn nimi): merkkijono
+	boxset (??): merkkijono (normal, boxset tai item)
+	box-id (??): kokonaisluku
+	type (tyyppi): merkkijono (album, single, EP, compilation, soundtrack, interview, live tai other)
+	year (first release) (ensimmäisen julkaisun vuosi): kokonaisluku
+	year (this release) (ko. levyn julkaisuvuosi): kokonaisluku
+	format (formaatti): merkkijono (CD, 2CD, DVD, CD+DVD, DVD+CD)
+	packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep case tai other)
+	label (levy-yhtiö): kokonaisluku (id jollekin levy-yhtiölle, jotka on lueteltu alasvetovalikossa)
+	limited (onko rajoitettu painos): boolean
+	ltd_num (rajoitetun painoksen numero): kokonaisluku
+	added (lisäyspäivämäärä): date
+	lent (onko levy lainassa): boolean
+	borrower (lainaajan nimi): merkkijono
+	annotation (kuvaus levystä): merkkijono
+
++ mitkä pakollisia parametreja??
+
+info.php____________________________________
+
+Ohjelma käynnistetään etusivulta (index.html) klikkaamalla jonkin levyn nimeä, ja se auttaa generoimaan levyn lisätietosivun (info.html). Ohjelma saa parametrinaan levyn id:n.
+
+- init.php??
+
+Ohjelma tekee tietokantakyselyn, jolla haetaan taulusta record levyn tiedot (nimi, onko osa boxia, boxin id ??, tyyppi, julkaisuvuodet, formaatti, kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen numero, lisäyspäivämäärä, onko lainattu, lainaajan nimi, levyn kuvaus), taulusta artist levyn esittäjän nimi, kotisivu ja kuvaus sekä taulusta label levy-yhtiön nimi, kotisivu ja kuvaus.
+
+delete.php__________________________________
+
+Ohjelma käynnistetään levyn infosivulta (info.html) klikkaamalla delete record -linkkiä ja valitsemalla ilmestyvästä varmistusikkunasta ok-painike. Ohjelman parametrina välitetään poistettavan levyn id.
+
+Ohjelma tarkistaa ensin, että käyttäjä on kirjautunut sisään, poistaa levyn tietokannasta ja ohjaa käyttäjän takaisin etusivulle.
+
+edit.php____________________________________
+
+Ohjelma auttaa generoimaan levyn muokkaussivun (edit.html). Käynnistyksen yhteydessä välitetään parametrina muokattavan levyn id. Ohjelma käynnistyy levyn infosivulta linkkiä edit record klikkaamalla (muuttuuko vielä??).
+
+Ohjelma tarkistaa ensin, onko käyttäjä kirjautunut sisään.?? Sen jälkeen tehdään tietokantakyselyt, joilla haetaan kaikkien esittäjien id:t taulusta artist (ja järjestetään ne sortnamen ?? mukaan), kaikki eri boxsetit (?? öh), kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypi taulusta packaging ja kaikki levy-yhtiöiden id:t taulusta label (ja järjestetään ne nimen mukaan). Näiden lisäksi tehdään vielä tietokantakysely, jossa haetaan taulusta record levyn tiedot (nimi, onko osa boxia, boxin id ??, tyyppi, julkaisuvuodet, formaatti, kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen numero, lisäyspäivämäärä, onko lainattu, lainaajan nimi, levyn kuvaus), taulusta artist levyn esittäjän nimi ja id sekä taulusta label levy-yhtiön nimi ja id.
+
+edit.post.php________________________________
+
+Ohjelma käynnistetään levyn muokkasivulta (edit.html) käsittelemään muokkauslomake. Ohjelma tarkistaa käyttäjän lomakkeelle syöttämät tiedot ja antaa tarvittaessa virheilmoituksen (pitääkö nämäkin selostaa??). Kelvolliset parametrit saatuaan ohjelma päivittää levyn tiedot taulussa record.
+
+Ohjelman parametrit:
+	artist (esittäjä): kokonaisluku (id jollekin tietokannasta löytyvälle esittäjälle, jotka on lueteltu alasvetovalikossa)
+	title (levyn nimi): merkkijono
+	boxset (??): merkkijono (normal, boxset tai item)
+	box-id (??): kokonaisluku
+	type (tyyppi): merkkijono (album, single, EP, compilation, soundtrack, interview, live tai other)
+	year (first release) (ensimmäisen julkaisun vuosi): kokonaisluku
+	year (this release) (ko. levyn julkaisuvuosi): kokonaisluku
+	format (formaatti): merkkijono (CD, 2CD, DVD, CD+DVD, DVD+CD)
+	packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep case tai other)
+	label (levy-yhtiö): kokonaisluku (id jollekin levy-yhtiölle, jotka on lueteltu alasvetovalikossa)
+	limited (onko rajoitettu painos): boolean
+	ltd_num (rajoitetun painoksen numero): kokonaisluku
+	added (lisäyspäivämäärä): date
+	lent (onko levy lainassa): boolean
+	borrower (lainaajan nimi): merkkijono
+	annotation (kuvaus levystä): merkkijono
+
++ mitkä pakollisia parametreja??
+
+
++++ info.html-sivulla oleva javascript-koodinpätkä???
