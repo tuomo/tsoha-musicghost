@@ -68,6 +68,9 @@ $rule = array(
 
 $error = FALSE;
 
+// FIXME
+$lst = $_POST['lists'];
+
 if (($data = Atomik::filter($_POST, $rule)) === false) {
     Atomik::flash(A('app/filters/messages'), 'error');
     $error = TRUE;
@@ -100,6 +103,8 @@ if (!validate_id($data['label'], $values['label'])) {
     Atomik::flash('Invalid label', 'error');
     $error = TRUE;
 }
+
+$data['lists'] = $lst;
 
 if ($error) {
 
@@ -180,6 +185,7 @@ if ($error) {
     }
 
     $db->delete('record_list', array('record' => $id));
+    //print_r($data['lists']);
     foreach ($data['lists'] as $l) {
         $db->insert('record_list', array('record' => $id, 'list' => $l));
     }

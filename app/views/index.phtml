@@ -9,24 +9,15 @@
 
 <img src="<?php echo $logo ?>"title="" alt="" />
 
-<p>
-<form action="" method="">
-  <input name="search" type="text" size="20" />
-  <input class="button" name="submit" type="submit" value="Search" />
-</form>
-</p>
-
-<p>
-<form action="" method="">
+<form action="<?php echo Atomik::url('@index') ?>" method="post">
   List:
-  <select>
-    <option>Favourites</option>
-    <option>Shopping list</option>
-    <option>Wish list</option>
+  <select name="list">
+    <?php echo $this->options($lists, $old_list) ?>
   </select>
+  Filter:
+  <input name="filter" type="text" size="15" value="<?php echo $old_filter ?>" />
+  <input class="button" name="submit" type="submit" value="Show" />
 </form>
-</p>
-
 
 <?php if ($logged_in): ?>
 <p>
@@ -48,11 +39,11 @@
   </thead>
   <?php foreach ($records as $r): ?>
   <tr>
-    <td class="recordlist"><?php echo $r['name'] ?></td>
+    <td class="recordlist"><?php echo $r['artist'] ?></td>
     <td class="recordlist">
       <a href="<?php echo $r['url'] ?>"><?php echo $r['title'] ?></a>
     </td>
-    <td class="recordlist"><?php echo $r['first_year'] ?></td>
+    <td class="recordlist"><?php echo $r['year'] ?></td>
     <td class="recordlist"><?php echo $r['format'] ?></td>
   </tr>
   <?php endforeach; ?>
