@@ -12,11 +12,14 @@
       endforeach; ?>
     </ul>
   </div>
+
   <div id="controlpanel">
-    <form action="" method="post">
+  <?php echo $this->errors() ?>
+  <p>
+  <form action="<?php echo $action ?>" method="post">
       <p>
-        <select name="artist">
-          <?php //echo $this->options($artists, $selected_artist) ?>
+        <select name="entry">
+          <?php echo $this->options($form_values, $form_selected) ?>
         </select>
         <input class="button" name="submit" type="submit" value="Show" />
       </p>
@@ -27,6 +30,13 @@
           <td class="left"><input name="name" type="text" size="40"
           value="<?php echo $form_name ?>" /></td>
         </tr>
+        <?php if ($tab == 'artists'): ?>
+          <tr>
+            <td class="right">Sort name</td>
+            <td class="left"><input name="sortname" type="text" size="40"
+            value="<?php echo $form_sortname ?>" /></td>
+          </tr>
+        <?php endif; ?>
         <tr>
           <td class="right">Homepage</td>
           <td class="left"><input name="homepage" type="text" size="40"
@@ -39,7 +49,11 @@
           </td>
         </tr>
       </table>
+      <br />
+      <input class="button" name="submit" type="submit" value="Save" />
+      <input class="button" name="submit" type="submit" value="Delete" />
     </form>
+    </p>
   </div>
 
 </div>

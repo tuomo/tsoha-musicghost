@@ -185,7 +185,6 @@ if ($error) {
     }
 
     $db->delete('record_list', array('record' => $id));
-    //print_r($data['lists']);
     foreach ($data['lists'] as $l) {
         $db->insert('record_list', array('record' => $id, 'list' => $l));
     }
