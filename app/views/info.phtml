@@ -95,13 +95,14 @@
 
 </div>
 
-<?php if ($logged_in): ?>
 <p>
+<?php if ($logged_in): ?>
   <a href="<?php echo Atomik::url('@edit', array('id' => $record['id'])) ?>"
     title="">Edit record &raquo;</a> |
-  <a href="#" onclick="confirmDelete();return false;" title="">Delete record &raquo;</a>
-</p>
+  <a href="#" onclick="confirmDelete();return false;" title="">Delete record &raquo;</a> |
 <?php endif; ?>
+<a href="<?php echo Atomik::url('@index') ?>" title="">Front page &raquo;</a>
+</p>
 
 <script type="text/javascript">
     function confirmDelete() {
