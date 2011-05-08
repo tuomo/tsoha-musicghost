@@ -59,9 +59,10 @@ Atomik::set('app/routes', array(
         '@name' => 'delete',
         'action' => 'delete',
     ),
-    'control' => array(
+    'control/:tab' => array(
         '@name' => 'control',
         'action' => 'control',
+        'tab' => 'artists'
     ),
 ));
 

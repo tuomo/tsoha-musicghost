@@ -9,6 +9,7 @@
 
 <img src="<?php echo $logo ?>"title="" alt="" />
 
+<p>
 <form action="<?php echo Atomik::url('@index') ?>" method="post">
   List:
   <select name="list">
@@ -18,6 +19,7 @@
   <input name="filter" type="text" size="15" value="<?php echo $old_filter ?>" />
   <input class="button" name="submit" type="submit" value="Show" />
 </form>
+</p>
 
 <?php if ($logged_in): ?>
 <p>
