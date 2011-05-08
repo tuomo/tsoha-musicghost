@@ -8,6 +8,10 @@ Atomik::set('app/filters/default_message', 'Field "%s" has an invalid value');
 Atomik::set('app/filters/required_message', 'Required field "%s" is empty');
 
 $rule = array(
+    'lists' => array(
+        'filter' => FILTER_UNSAFE_RAW,
+        'required' => TRUE
+    ),
     'artist' => array(
         'filter' => FILTER_VALIDATE_INT,
         'required' => TRUE
@@ -68,6 +72,10 @@ if (($data = Atomik::filter($_POST, $rule)) === false) {
     Atomik::flash(A('app/filters/messages'), 'error');
     $error = TRUE;
 }
+if (!validate_id($data['lists'], $values['lists'])) {
+    Atomik::flash('Invalid list', 'error');
+    $error = TRUE;
+}
 if (!validate_id($data['artist'], $values['artist'])) {
     Atomik::flash('Invalid artist', 'error');
     $error = TRUE;
@@ -95,6 +103,7 @@ if (!validate_id($data['label'], $values['label'])) {
 
 if ($error) {
 
+    $old_lists = isset($_POST['lists']) ? $_POST['lists'] : NULL;
     $old_artist = $_POST['artist'];
     $old_title = $_POST['title'];
     $old_boxset = $_POST['boxset'];
@@ -170,20 +179,40 @@ if ($error) {
         Atomik_Db::update('record', $db_val, array('id' => $id));
     }
 
+    $db->delete('record_list', array('record' => $id));
+    foreach ($data['lists'] as $l) {
+        $db->insert('record_list', array('record' => $id, 'list' => $l));
+    }
+
     Atomik::redirect(Atomik::url('@info', array('id' => $id)), FALSE);
 }
 
-function validate_id($id, $values)
+function validate_id($ids, $values, $null=TRUE)
 {
-    if (is_null($id)) {
+    if ($null && is_null($ids)) {
         return TRUE;
     }
-    foreach ($values as $v) {
-        if ($id == $v['id']) {
-            return TRUE;
+
+    if (!is_array($ids)) {
+        $ids = array($ids);
+    }
+
+    $all_found = TRUE;
+    foreach ($ids as $id) {
+        $found = FALSE;
+        foreach ($values as $v) {
+            if ($id == $v['id']) {
+                $found = TRUE;
+                break;
+            }
+        }
+        if (!$found) {
+            $all_found = FALSE;
+            break;
         }
     }
-    return FALSE;
+
+    return $all_found;
 }
 
 ?>

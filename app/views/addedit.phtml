@@ -16,6 +16,15 @@ endif;
     <table class="form">
 
       <tr>
+        <td class="right">*Lists</td>
+        <td class="left">
+          <select name="lists[]" multiple="multiple" size="3">
+            <?php echo $this->options($lists, $old_lists) ?>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
         <td class="right">*Artist</td>
         <td class="left">
           <select name="artist">

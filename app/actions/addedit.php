@@ -8,6 +8,7 @@ Atomik::setView('addedit');
 
 $operation = A('request/operation');
 
+$values['lists'] = $db->query('SELECT name AS id, name FROM list')->fetchAll();
 $values['artist'] = $db->query('SELECT id, name FROM artist ORDER BY sortname')->fetchAll();
 $boxsets = $db->query(
     'SELECT a.name, r.id, r.title '.
@@ -28,6 +29,7 @@ $values = escape_values($values);
 
 $empty = array('id' => NULL, 'name' => NULL);
 
+$lists = $values['lists'];
 $artists = array_merge(array($empty), $values['artist']);
 $boxsets = array_merge(array($empty), $values['boxset']);
 $types = array_merge(array($empty), $values['type']);
@@ -35,6 +37,7 @@ $formats = array_merge(array($empty), $values['format']);
 $packagings = array_merge(array($empty), $values['packaging']);
 $labels = array_merge(array($empty), $values['label']);
 
+$old_lists = NULL;
 $old_artist = NULL;
 $old_title = NULL;
 $old_boxset = 'normal';
@@ -64,7 +67,16 @@ if ($operation === 'add') {
     $heading = 'Edit a record';
     $action = Atomik::url('@edit', array('id' => $id));
 
-    $old = $db->query(
+    $rows = $db->query(
+        'SELECT list FROM record_list WHERE record = ?',
+        array($id)
+    )->fetchAll();
+
+    foreach ($rows as $r) {
+        $old_lists[] = Atomik::escape($r['list']);
+    }
+
+    $row = $db->query(
         'SELECT a.id AS artist, l.id AS label, r.title, r.box_set, r.box_id, '.
         'r.type, r.first_year, r.this_year, r.format, r.packaging, r.limited, '.
         'r.ltd_num, r.added, r.lent, r.borrower, r.annotation '.
@@ -73,26 +85,26 @@ if ($operation === 'add') {
         array($id)
     )->fetch();
 
-    $old_artist = $old['artist'];
-    $old_title = Atomik::escape($old['title']);
-    if ($old['box_set']) {
+    $old_artist = $row['artist'];
+    $old_title = Atomik::escape($row['title']);
+    if ($row['box_set']) {
         $old_boxset = 'boxset';
-    } elseif (!is_null($old['box_id'])) {
+    } elseif (!is_null($row['box_id'])) {
         $old_boxset = 'item';
-        $old_boxid = $old['box_id'];
+        $old_boxid = $row['box_id'];
     }
-    $old_type = Atomik::escape($old['type']);
-    $old_first_year = $old['first_year'];
-    $old_this_year = $old['this_year'];
-    $old_format = Atomik::escape($old['format']);
-    $old_packaging = Atomik::escape($old['packaging']);
-    $old_label = $old['label'];
-    $old_limited = $old['limited'];
-    $old_ltd_num = $old['ltd_num'];
-    $old_added = $old['added'];
-    $old_lent = $old['lent'];
-    $old_borrower = Atomik::escape($old['borrower']);
-    $old_annotation = Atomik::escape($old['annotation']);
+    $old_type = Atomik::escape($row['type']);
+    $old_first_year = $row['first_year'];
+    $old_this_year = $row['this_year'];
+    $old_format = Atomik::escape($row['format']);
+    $old_packaging = Atomik::escape($row['packaging']);
+    $old_label = $row['label'];
+    $old_limited = $row['limited'];
+    $old_ltd_num = $row['ltd_num'];
+    $old_added = $row['added'];
+    $old_lent = $row['lent'];
+    $old_borrower = Atomik::escape($row['borrower']);
+    $old_annotation = Atomik::escape($row['annotation']);
 
 }
 
