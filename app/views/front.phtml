@@ -41,12 +41,13 @@
   </thead>
   <?php foreach ($records as $r): ?>
   <tr>
-    <td class="recordlist"><?php echo $r['artist'] ?></td>
+    <td class="recordlist"><?php echo $r['artist'], $this->boxitems($r, 'artist') ?></td>
     <td class="recordlist">
       <a href="<?php echo $r['url'] ?>"><?php echo $r['title'] ?></a>
+      <?php echo $this->boxitems($r, 'title') ?>
     </td>
-    <td class="recordlist"><?php echo $r['year'] ?></td>
-    <td class="recordlist"><?php echo $r['format'] ?></td>
+    <td class="recordlist"><?php echo $r['year'], $this->boxitems($r, 'year') ?></td>
+    <td class="recordlist"><?php echo $r['format'], $this->boxitems($r, 'format') ?></td>
   </tr>
   <?php endforeach; ?>
 </table>

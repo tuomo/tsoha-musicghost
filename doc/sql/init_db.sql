@@ -63,7 +63,9 @@ CREATE TABLE record_list (
 INSERT INTO type (name) VALUES ('Album'), ('Single'), ('EP'), ('Compilation'),
     ('Soundtrack'), ('Interview'), ('Live'), ('Other');
 
-INSERT INTO list (name, public, "default") VALUES ('Collection', TRUE, TRUE);
+INSERT INTO list (name, public, "default") VALUES ('Collection', TRUE, TRUE),
+    ('Wish list', TRUE, FALSE), ('For sale', TRUE, FALSE),
+    ('Private', FALSE, FALSE);
 
 INSERT INTO format (name) VALUES ('CD'), ('2CD'),
     ('DVD'), ('2DVD'), ('CD+DVD'), ('DVD+CD'), ('BD'), ('BD+DVD'),
