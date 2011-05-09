@@ -25,6 +25,7 @@ Hanna Nieminen\\\texttt{hanna.m.nieminen@helsinki.fi}}
 \section{Johdanto}
 
 \subsection{Järjestelmän tarkoitus}
+
 Järjestelmän avulla sen ylläpitäjä voi pitää kirjaa levykokoelmastaan.
 Järjestelmä tarjoaa useita erillisiä listoja, jolloin on mahdollista
 erotella esimerkiksi omistamansa levyt ja tulevat hankinnat toisistaan.
@@ -32,14 +33,17 @@ Järjestelmästä voi tehdä julkisen, jolloin myös vierailijat voivat selata
 levylistaa ja yksittäisten levyjen tietoja.
 
 \subsection{Toimintaympäristö}
+
 Järjestelmää käytetään WWW-selaimen kautta. Sen ajamiseen tarvitaan
 Apache-palvelin varustettuna PHP5-tuella sekä PostgreSQL-tietokanta.
 
 \subsection{Rajaukset}
+
 Kaikki ominaisuudet, joita ei ole tässä määrittelyssä erikseen mainittu, on
 oletusarvoisesti rajattu järjestelmän ulkopuolelle.
 
 \subsection{Toteutusympäristö}
+
 Järjestelmän toteuttamisessa hyödynnetään Vim-editoria Arch Linux
 -käyttöjärjestelmässä sekä Notepad++-editoria Windows 7
 -käyttöjärjestelmässä. Toteutuksen aikana järjestelmää testataan
@@ -58,47 +62,48 @@ paikallisilla Apache- ja PostgreSQL-palvelimilla.
 \end{figure}
 
 \subsection{Käyttäjäryhmät}
+
 \begin{description}
-\item[Vierailija] Kuka tahansa sivulla vieraileva käyttäjä. Myös tietokannan
-omistaja kuuluu tähän luokkaan.
-\item[Ylläpitäjä] Levytietokannan omistaja,
-joka ylläpitää tietokantaa.
+  \item[Ylläpitäjä] Levytietokannan omistaja, joka ylläpitää tietokantaa.
+  \item[Vierailija] Kuka tahansa sivulla vieraileva käyttäjä. Myös
+    tietokannan omistaja kuuluu tähän luokkaan.
 \end{description}
 
 \section{Käyttötapaukset}
 
-\begin{itemize}
+\subsection{Ylläpitäjä}
 
-\item Vierailija:
 \begin{description}
-\item[Levylistan selaaminen] Kuka tahansa voi katsella tietokannan sisältöä.
-Listauksessa näkyy kunkin levyn kohdalla sen esittäjä, nimi, julkaisuvuosi ja
-formaatti.
-\item[Yksittäisen levyn tietojen tutkiminen] Käyttäjä voi valita yksittäisen
-levyn, jolloin hänelle näytetään kaikki siihen liitetyt tiedot.
-\item[Levyjen hakeminen hakusanalla] Käyttäjä voi antaa hakusanan, jolloin
-hänelle näytetään lista niistä levyistä, joiden tiedot sisältävät annetun
-hakusanan.
-\item[Kirjautuminen sisään] Mikäli vierailija sattuu olemaan tietokannan
-omistaja, hän voi kirjautua sisään järjestelmään, jolloin hänestä tulee
-ylläpitäjä.
+  \item[Levyn lisääminen] Ylläpitäjä voi lisätä uusia levyjä tietokantaan.
+    Ylläpitäjä syöttää ainakin levyn esittäjän, nimen, tyypin
+    (albumi/single/\ldots) ja mahdollisen kokonaisuuden (boksin), johon levy
+    kuuluu, sekä valitsee ainakin yhden listan, jolle se lisätään.
+    Vapaaehtoisia tietoja ovat levyn julkaisuvuosi, formaatti, kotelointi,
+    levy-yhtiö, painoksen koko, hankintapäivämäärä, tieto levyn lainassa
+    olemisesta, vapaamuotoinen kommentti ja kansikuva.
+  \item[Levyn tietojen muokkaaminen] Ylläpitäjä voi muokata kaikkia
+    yksittäiseen levyyn liitettyjä tietoja.
+  \item[Levyn poistaminen] Ylläpitäjä voi poistaa levyn tietokannasta.
+  \item[Kirjautuminen ulos] Ylläpitäjä voi tarvittavat ylläpitotehtävät
+    tehtyään kirjautua ulos, jolloin hänestä tulee tavallinen vierailija.
 \end{description}
 
-\item Ylläpitäjä:
-\begin{description}
-\item[Levyn lisääminen] Ylläpitäjä voi lisätä uusia levyjä tietokantaan.
-Ylläpitäjä syöttää ainakin levyn tyypin, esittäjän ja nimen sekä valitsee, mille
-listalle se lisätään. Vapaaehtoisia tietoja ovat levyn julkaisuvuosi, formaatti,
-kansikuva ja vapaamuotoinen kommentti. Esittäjäksi voi valita listasta jonkin jo
-tietokannasta löytyvän esittäjän tai vaihtoehtoisesti syöttää kokonaan uuden.
-\item[Levyn tietojen muokkaaminen] Ylläpitäjä voi muokata kaikkia yksittäiseen
-levyyn liitettyjä tietoja.
-\item[Levyn poistaminen] Ylläpitäjä voi poistaa levyn tietokannasta.
-\item[Kirjautuminen ulos] Ylläpitäjä voi tarvittavat ylläpitotehtävät tehtyään
-kirjautua ulos, jolloin hänestä tulee vierailija.
-\end{description}
+\subsection{Vierailija}
 
-\end{itemize}
+\begin{description}
+  \item[Levylistan selaaminen] Kuka tahansa voi katsella tietokannan
+    sisältöä.  Listauksessa näkyy kunkin levyn kohdalla sen esittäjä, nimi,
+    julkaisuvuosi ja formaatti.
+  \item[Yksittäisen levyn tietojen tutkiminen] Käyttäjä voi valita
+    yksittäisen levyn, jolloin hänelle näytetään kaikki siihen liitetyt
+    tiedot.
+  \item[Levyjen hakeminen hakusanalla] Käyttäjä voi antaa hakusanoja,
+    jolloin hänelle näytetään lista niistä levyistä, joiden listauksessa
+    näytettävät tiedot sisältävät annetut hakusanat.
+  \item[Kirjautuminen sisään] Mikäli vierailija tietää ylläpitäjän
+    salasanan, hän voi kirjautua sisään järjestelmään, jolloin hänestä tulee
+    ylläpitäjä.
+\end{description}
 
 \chapter{Suunnittelu}
 
@@ -111,68 +116,129 @@ kirjautua ulos, jolloin hänestä tulee vierailija.
   \caption{Käsitekaavio}
 \end{figure}
 
-\begin{itemize}
-\item record
 \begin{description}
-\item[box\_status] Onko kyseessä normaali levy, boksi vai boksiin kuuluva levy?
-\item[type] Levyn tyyppi -- esimerkiksi albumi, single tai live.
-\item[first\_year] Levyn ensimmäinen julkaisuvuosi.
-\item[this\_year] Kokoelmassa olevan levyn julkaisuvuosi.
-\item[limited] Onko levy rajoitettua painosta?
-\item[ltd\_num] Rajoitetun painoksen painosmäärä.
-\item[added] Päivä, jolloin levy on lisätty kokoelmaan.
-\item[lent] Onko levy lainassa?
-\item[borrower] Henkilö, jolle levy on lainattu.
+
+  \item[artist]
+    Levyn esittäjä identifioidaan yksikäsitteisen kokonaisluku-id:n avulla.
+    Esittäjä voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+    \begin{description}
+      \item[name] Esittäjän nimi (esimerkiksi ''Etunimi Sukunimi'')
+      \item[sortname] Nimi, jota käytetään esittäjien järjestämiseen
+        (esimerkiksi ''Sukunimi, Etunimi'')
+      \item[homepage] Esittäjän kotisivujen osoite
+      \item[annotation] Vapaamuotoinen kuvaus esittäjästä
+    \end{description}
+
+  \item[label]
+    Levy-yhtiö identifioidaan yksikäsitteisen kokonaisluku-id:n avulla.
+    Levy-yhtiö voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+    \begin{description}
+      \item[name] Levy-yhtiön nimi
+      \item[homepage] Levy-yhtiön kotisivujen osoite
+      \item[annotation] Vapaamuotoinen kuvaus levy-yhtiöstä
+    \end{description}
+
+  \item[record]
+    Omistajan levykokoelmaan kuuluva levy. Levy identifioidaan
+    yksikäsitteisen kokonaisluku-id:n avulla.  Levyyn liittyy sen esittäjä
+    ja tyyppi. Siihen voi liittyä myös enintään yksi levy-yhtiö, formaatti
+    ja kotelon tyyppi.  Lisäksi levy kuuluu ainakin yhteen listaan. Levy voi
+    kuulua samaan boksiin joidenkin muiden levyjen kanssa.
+    \begin{description}
+      \item[title] Levyn nimi (merkkijono)
+      \item[box\_set] Onko kyseessä boksi, johon voi sisältyä muita levyjä?
+        (totuusarvo)
+      \item[first\_year] Levyn alkuperäinen julkaisuvuosi (kokonaisluku)
+      \item[this\_year] Kokoelmassa olevan version julkaisuvuosi (kokonaisluku)
+      \item[limited] Onko levy rajoitettua painosta? (totuusarvo)
+      \item[ltd\_num] Rajoitetun painoksen painosmäärä (kokonaisluku)
+      \item[added] Päivä, jolloin levy on lisätty kokoelmaan (päivämäärä)
+      \item[lent] Onko levy lainassa? (totuusarvo)
+      \item[borrower] Henkilö, jolle levy on lainattu (merkkijono)
+      \item[annotation] Vapaamuotoinen kuvaus levystä (merkkijono)
+      \item[cover] Levyn kansikuvan tiedostonnimi (merkkijono)
+    \end{description}
+
+  \item[type]
+    Levytyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+    \begin{description}
+      \item[name] Levyn tyyppi, esimerkiksi ''Album'' tai ''Single''
+        (merkkijono)
+    \end{description}
+
+  \item[format]
+    Levyformaatti voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+    \begin{description}
+      \item[name] Levyn formaatti, esimerkiksi ''2CD'' tai ''DVD+CD''
+        (merkkijono)
+    \end{description}
+
+  \item[packaging]
+    Kotelotyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+    \begin{description}
+      \item[name] Levyn kotelon tyyppi, esimerkiksi ''Jewel case'' tai
+        ''Digipak'' (merkkijono)
+    \end{description}
+
+  \item[list]
+    Levylista, johon voi liittyä mielivaltainen määrä levyjä.
+    Lista identifioidaan sen yksikäsitteisen nimen perusteella.
+    \begin{description}
+      \item[name] Listan nimi (merkkijono)
+      \item[public] Onko lista julkinen? (totuusarvo)
+      \item[default] Onko kyseeessä oletuslista, joita on vain yksi?
+        (totuusarvo)
+    \end{description}
+
 \end{description}
-\end{itemize}
 
 \section{Käyttöliittymän hahmotelma}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=\textwidth]{mainwindow2}
-\end{center}
-\caption{Etusivu}
+  \begin{center}
+    \includegraphics[width=\textwidth]{uidraft/mainwindow2}
+  \end{center}
+  \caption{Etusivu}
 \end{figure}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=\textwidth]{recordinfopage}
-\end{center}
-\caption{Levyn lisätietosivu}
+  \begin{center}
+    \includegraphics[width=\textwidth]{uidraft/recordinfopage}
+  \end{center}
+  \caption{Levyn lisätietosivu}
 \end{figure}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[]{login}
-\end{center}
-\caption{Kirjautuminen sisään}
+  \begin{center}
+    \includegraphics[]{uidraft/login}
+  \end{center}
+  \caption{Sisäänkirjautumissivu}
 \end{figure}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[]{addpage}
-\end{center}
-\caption{Levyn lisääminen}
+  \begin{center}
+    \includegraphics[]{uidraft/addpage}
+  \end{center}
+  \caption{Levyn lisäyssivu}
 \end{figure}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[]{editpage}
-\end{center}
-\caption{Levyn muokkaaminen}
+  \begin{center}
+    \includegraphics[]{uidraft/editpage}
+  \end{center}
+  \caption{Levyn muokkaussivu}
 \end{figure}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[]{delete}
-\end{center}
-\caption{Levyn poiston varmistusdialogi}
+  \begin{center}
+    \includegraphics[]{uidraft/delete}
+  \end{center}
+  \caption{Levyn poiston varmistusdialogi}
 \end{figure}
 
 \section{Relaatiotietokantakaavio}
 
-Relaatiotietokantakaavio on esitetty \texttt{CREATE TABLE} -lauseina tiedostossa
-\texttt{create\_tables.sql}.
+Relaatiotietokantakaavio on esitetty \texttt{CREATE TABLE} -lauseina
+tiedostossa \texttt{sql/init\_db.sql}.
 
 \end{document}
