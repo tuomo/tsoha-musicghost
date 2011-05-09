@@ -4,14 +4,10 @@ require_once('init.php');
 
 require_logged_in();
 
-Atomik::set('app/filters/default_message', 'Field "%s" has an invalid value');
-Atomik::set('app/filters/required_message', 'Required field "%s" is empty');
+Atomik::set('app/filters/default_message', 'Invalid %s');
+Atomik::set('app/filters/required_message', 'Invalid %s');
 
 $rule = array(
-    'lists' => array(
-        'filter' => FILTER_UNSAFE_RAW,
-        'required' => TRUE
-    ),
     'artist' => array(
         'filter' => FILTER_VALIDATE_INT,
         'required' => TRUE
@@ -68,14 +64,13 @@ $rule = array(
 
 $error = FALSE;
 
-// FIXME
-$lst = $_POST['lists'];
-
 if (($data = Atomik::filter($_POST, $rule)) === false) {
     Atomik::flash(A('app/filters/messages'), 'error');
     $error = TRUE;
 }
-if (!validate_id($data['lists'], $values['lists'])) {
+$data['lists'] = isset($_POST['lists']) ? $_POST['lists'] : NULL;
+
+if (!validate_id($data['lists'], $values['lists'], FALSE)) {
     Atomik::flash('Invalid list', 'error');
     $error = TRUE;
 }
@@ -103,8 +98,6 @@ if (!validate_id($data['label'], $values['label'])) {
     Atomik::flash('Invalid label', 'error');
     $error = TRUE;
 }
-
-$data['lists'] = $lst;
 
 if ($error) {
 
@@ -178,10 +171,10 @@ if ($error) {
     $operation = A('request/operation');
 
     if ($operation === 'add') {
-        Atomik_Db::insert('record', $db_val);
+        $db->insert('record', $db_val);
         $id = $db->pdo->lastInsertId('record_id_seq');
     } else {
-        Atomik_Db::update('record', $db_val, array('id' => $id));
+        $db->update('record', $db_val, array('id' => $id));
     }
 
     $db->delete('record_list', array('record' => $id));
@@ -194,8 +187,9 @@ if ($error) {
 
 function validate_id($ids, $values, $null=TRUE)
 {
-    if ($null && is_null($ids)) {
-        return TRUE;
+    if (is_null($ids)) {
+        if ($null) return TRUE;
+        else return FALSE;
     }
 
     if (!is_array($ids)) {
