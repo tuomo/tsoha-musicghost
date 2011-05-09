@@ -1,12 +1,13 @@
 <?php
 
-require('session.php');
+require_once('init.php');
 
-$_id = A('request/id');
+require_logged_in();
 
-$debug[1] = Atomik_Db::delete('record', array('id' => $_id));
+$id = A('request/id');
+$db->delete('record', array('id' => $id));
 
-Atomik::redirect('index');
+Atomik::redirect('@front');
 
 ?>
 

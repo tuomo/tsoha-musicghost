@@ -4,7 +4,7 @@ Atomik::set(array (
     'app' =>
     array (
         'layout' => '_layout',
-        'default_action' => 'index',
+        'default_action' => 'front',
         'views' =>
         array (
             'file_extension' => '.phtml',
@@ -30,12 +30,12 @@ Atomik::set(array (
 
 Atomik::set('app/routes', array(
     '/' => array(
-        '@name' => 'index',
-        'action' => 'index'
+        '@name' => 'front',
+        'action' => 'front'
     ),
-    'info/:id' => array(
-        '@name' => 'info',
-        'action' => 'info'
+    'details/:id' => array(
+        '@name' => 'details',
+        'action' => 'details'
     ),
     'login' => array(
         '@name' => 'login',

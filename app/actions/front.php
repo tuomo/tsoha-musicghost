@@ -49,7 +49,7 @@ foreach ($records as &$r) {
     $r['artist'] = Atomik::escape($r['artist']);
     $r['title'] = Atomik::escape($r['title']);
     $r['format'] = Atomik::escape($r['format']);
-    $r['url'] = Atomik::url('@info', array('id' => $r['id']));
+    $r['url'] = Atomik::url('@details', array('id' => $r['id']));
 }
 unset($record);
 

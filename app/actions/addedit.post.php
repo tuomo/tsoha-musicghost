@@ -189,7 +189,7 @@ if ($error) {
         $db->insert('record_list', array('record' => $id, 'list' => $l));
     }
 
-    Atomik::redirect(Atomik::url('@info', array('id' => $id)), FALSE);
+    Atomik::redirect(Atomik::url('@details', array('id' => $id)), FALSE);
 }
 
 function validate_id($ids, $values, $null=TRUE)
