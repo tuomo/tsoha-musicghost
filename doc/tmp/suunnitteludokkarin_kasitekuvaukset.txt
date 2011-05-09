@@ -1,0 +1,70 @@
+﻿Järjestelmän tietosisältö
+
+Record (levyn tiedot)
+
+Omistajan levykokoelmaan kuuluva levy. Levy identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. 
+Levyyn liittyy sen esittäjä ja tyyppi. Siihen voi liittyä myös enintään yksi levy-yhtiö, formaatti ja kotelon tyyppi. 
+Lisäksi levy kuuluu ainakin yhteen listaan. Levy voi kuulua samaan boksiin joidenkin muiden levyjen kanssa.
+
+title (merkkijono): Levyn nimi.
+box_set (totuusarvo): Onko kyseessä normaali levy, boksi vai boksiin kuuluva levy?
+first_year (kokonaisluku): Levyn ensimmäinen julkaisuvuosi.
+this_year (kokonaisluku): Kokoelmassa olevan levyn julkaisuvuosi.
+limited (totuusarvo): Onko levy rajoitettua painosta?
+ltd_num (kokonaisluku): Rajoitetun painoksen painosmäärä.
+added (päivämäärä): Päivä, jolloin levy on lisätty kokoelmaan.
+lent (totuusarvo): Onko levy lainassa?
+borrower (merkkijono): Henkilö, jolle levy on lainattu.
+annotation (merkkijono): Vapaavalintainen kuvaus levystä.
+cover (merkkijono): Levyn kansikuvan tiedostonimi.
+
+
+Artist (esittäjän tiedot)
+
+Levyn esittäjä identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. 
+Esittäjä voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Esittäjän nimi.
+sortname Nimi, jota käytetään esittäjien järjestämiseen.
+homepage Esittäjän kotisivu.
+annotation Vapaavalintainen kuvaus esittäjästä.
+
+
+Label (levy-yhtiön tiedot)
+
+Levy-yhtiö identifioidaan yksikäsitteisen kokonaisluku-id:n avulla. 
+Levy-yhtiö voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levy-yhtiön nimi
+homepage Levy-yhtiön kotisivu.
+annotation Vapaavalintainen kuvaus levy-yhtiöstä.
+
+
+Type
+
+Levytyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn tyyppi (esim. album, single, EP).
+
+
+Format
+
+Levyformaatti voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn formaatti (esim. CD, 2CD, DVD).
+
+
+Packaging
+
+Kotelotyyppi voi liittyä tietokannassa mielivaltaiseen määrään levyjä.
+
+name Levyn kotelon tyyppi (esim. jewel case, digipack, keep case).
+
+
+List
+
+Levylista, johon voi liittyä mielivaltainen määrä levyjä. 
+Lista identifioidaan sen yksikäsitteisen nimen perusteella.
+
+name Listan nimi.
+public Onko lista julkinen?
