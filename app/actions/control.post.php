@@ -23,6 +23,11 @@ case 'artists':
             Atomik::flash('You must first delete all records with this artist', 'error');
         } else {
             $db->delete('artist', array('id' => $entry));
+            $form_selected = -1;
+            $form_name = NULL;
+            $form_sortname = NULL;
+            $form_homepage = NULL;
+            $form_annotation = NULL;
         }
     } elseif ($_POST['submit'] == 'Save') {
 
@@ -70,6 +75,10 @@ case 'artists':
 case 'labels':
     if ($_POST['submit'] == 'Delete') {
         $db->delete('label', array('id' => $entry));
+        $form_selected = -1;
+        $form_name = NULL;
+        $form_homepage = NULL;
+        $form_annotation = NULL;
     } elseif ($_POST['submit'] == 'Save') {
 
         if (empty($name)) {
@@ -110,5 +119,7 @@ case 'labels':
     }
     break;
 }
+
+$form_values = get_values($db, $tab);
 
 ?>

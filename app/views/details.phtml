@@ -1,4 +1,4 @@
-<h1>Record info</h1>
+<h1>Record Details</h1>
 
 <div id="recordinfo">
 
@@ -7,7 +7,7 @@
   <img class="recordimage"
     src="<?php echo Atomik::appAsset('assets/images/sampleimage.png') ?>"
     alt="" title="" align="left" />
-  
+
   <table>
     <tr>
       <td class="left"><strong>Artist:</strong></td>
@@ -15,17 +15,22 @@
     </tr>
     <tr>
       <td class="left"><strong>Homepage:</strong></td>
-      <td class="left"><a href="<?php echo $record['artist_homepage'] ?>" title=""><?php echo $record['artist_homepage'] ?></a></td>
+      <td class="left"><a href="<?php echo $record['artist_homepage'] ?>"
+      title=""><?php echo $record['artist_homepage'] ?></a></td>
     </tr>
     <tr>
       <td class="left"><strong>Annotation:</strong></td>
       <td class="left"><?php echo $record['artist_annotation'] ?></td>
     </tr>
-    
+
     <tr>
       <td></br></td>
     </tr>
-    
+
+    <tr>
+      <td class="left"><strong>Album:</strong></td>
+      <td class="left"><?php echo $record['title'] ?></td>
+    </tr>
     <tr>
       <td class="left"><strong>Year:</strong></td>
       <td class="left"><?php echo $record['first_year'], ' / ', $record['this_year'] ?></td>
@@ -74,18 +79,19 @@
       <td class="left"><strong>Annotation:</strong></td>
       <td class="left"><?php echo $record['annotation'] ?></td>
     </tr>
- 
+
     <tr>
       <td></br></td>
     </tr>
- 
+
     <tr>
       <td class="left"><strong>Label:</strong></td>
       <td class="left"><?php echo $record['label'] ?></td>
     </tr>
     <tr>
       <td class="left"><strong>Homepage:</strong></td>
-      <td class="left"><a href="<?php echo $record['label_homepage'] ?>" title=""><?php echo $record['label_homepage'] ?></a></td>
+      <td class="left"><a href="<?php echo $record['label_homepage'] ?>"
+      title=""><?php echo $record['label_homepage'] ?></a></td>
     </tr>
     <tr>
       <td class="left"><strong>Annotation:</strong></td>

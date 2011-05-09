@@ -10,4 +10,3 @@ $db->delete('record', array('id' => $id));
 Atomik::redirect('@front');
 
 ?>
-
