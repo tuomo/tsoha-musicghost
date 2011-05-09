@@ -50,7 +50,8 @@ CREATE TABLE record (
     added       DATE,
     lent        BOOLEAN NOT NULL,
     borrower    TEXT,
-    annotation  TEXT
+    annotation  TEXT,
+    cover       TEXT
 );
 
 CREATE TABLE record_list (

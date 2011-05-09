@@ -61,7 +61,7 @@ if ($operation === 'add') {
     $heading = 'Add a new record';
     $action = Atomik::url('@add');
 
-} else {
+} else { // Edit
 
     $id = A('request/id');
 
@@ -80,7 +80,7 @@ if ($operation === 'add') {
     $row = $db->query(
         'SELECT a.id AS artist, l.id AS label, r.title, r.box_set, r.box_id, '.
         'r.type, r.first_year, r.this_year, r.format, r.packaging, r.limited, '.
-        'r.ltd_num, r.added, r.lent, r.borrower, r.annotation '.
+        'r.ltd_num, r.added, r.lent, r.borrower, r.annotation, r.cover '.
         'FROM artist a, record r LEFT OUTER JOIN label l ON (l.id = r.label) '.
         'WHERE a.id = r.artist AND r.id = ?',
         array($id)
@@ -106,6 +106,8 @@ if ($operation === 'add') {
     $old_lent = $row['lent'];
     $old_borrower = Atomik::escape($row['borrower']);
     $old_annotation = Atomik::escape($row['annotation']);
+
+    $old_cover = $row['cover'];
 
 }
 

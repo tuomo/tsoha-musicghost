@@ -2,19 +2,22 @@
 
 Atomik::set('config', array(
 
-    // The name that is shown on the web site.
+    // Name of the owner
     'name' => 'Example',
 
-    // The password that is needed to modify the collection.
+    // Password to modify the collection
     'password' => 'example',
 
-    // The information that is needed to connect to the database.
+    // Database settings
     'db' => array(
         'host' => 'localhost',
         'user' => 'tuomo',
         'pass' => '',
         'dbname' => 'musicghost'
-    )
+    ),
+
+    // Resize album cover images (needs the Imagick extension)
+    'resize' => TRUE,
 
 ));
 

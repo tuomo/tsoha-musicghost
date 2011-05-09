@@ -3,7 +3,7 @@
 <?php echo $this->errors() ?>
 
 <p>
-  <form action="<?php echo $action ?>" method="post">
+  <form enctype="multipart/form-data" action="<?php echo $action ?>" method="post">
     <table class="form">
 
       <tr>
@@ -134,6 +134,14 @@
         <td class="right">Annotation</td>
         <td class="left">
           <textarea name="annotation" rows="4" cols="38"><?php echo $old_annotation ?></textarea>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="right">Cover</td>
+        <td class="left">
+          <input type="hidden" name="MAX_FILE_SIZE" value="1048576" / >
+          <input name="cover" type="file" />
         </td>
       </tr>
 

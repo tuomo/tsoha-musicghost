@@ -99,6 +99,18 @@ if (!validate_id($data['label'], $values['label'])) {
     $error = TRUE;
 }
 
+$cover = $_FILES['cover'];
+if ($cover['error'] != UPLOAD_ERR_NO_FILE) {
+    if ($cover['error'] != UPLOAD_ERR_OK) {
+        Atomik::flash('Error when uploading cover image', 'error');
+        $error = TRUE;
+    }
+    if ($cover['size'] > 1048576) {
+        Atomik::flash('Maximum cover image size is 1 MB', 'error');
+        $error = TRUE;
+    }
+}
+
 if ($error) {
 
     $old_lists = isset($_POST['lists']) ? $_POST['lists'] : NULL;
@@ -173,13 +185,38 @@ if ($error) {
     if ($operation === 'add') {
         $db->insert('record', $db_val);
         $id = $db->pdo->lastInsertId('record_id_seq');
-    } else {
+    } else { // edit
         $db->update('record', $db_val, array('id' => $id));
     }
 
     $db->delete('record_list', array('record' => $id));
     foreach ($data['lists'] as $l) {
         $db->insert('record_list', array('record' => $id, 'list' => $l));
+    }
+
+    if ($cover['error'] == UPLOAD_ERR_OK) {
+        $dir = realpath('artwork');
+
+        // Delete old image
+        if (isset($old_cover)) {
+            unlink($dir.'/'.$old_cover);
+        }
+
+        // Save new image
+        $new_cover = $id.'.'.pathinfo($cover['name'], PATHINFO_EXTENSION);
+        $path = $dir.'/'.$new_cover;
+        move_uploaded_file($cover['tmp_name'], $path);
+
+        // Resize the image
+        if (A('config/resize')) {
+            $image = new Imagick($path);
+            $image->thumbnailImage(200, 200);
+            $image->writeImage();
+            $image->destroy();
+        }
+
+        // Update the file name in database
+        $db->update('record', array('cover' => $new_cover), array('id' => $id));
     }
 
     Atomik::redirect(Atomik::url('@details', array('id' => $id)), FALSE);
