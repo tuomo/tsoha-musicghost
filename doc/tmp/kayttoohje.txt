@@ -1,0 +1,44 @@
+﻿KÄYTTÖOHJE
+
+1. Websovelluksen url laitoksen palvelimella
+
+2. Kirjautumaton käyttäjä:
+	- Etusivulla näkyy listaus levytietokannan levyistä.
+	- Voit tarkastella tietylle listalle (koko kokoelma, ostoslista, toivelista) luokiteltuja levyjä valitsemalla listan alasvetovalikosta ja klikkaamalla Show.
+	- Voit hakea levyjä jollain hakusanalla kirjoittamalla sanan kenttään Filter ja klikkaamalla Show.
+	- Edelliset voi tehdä myös yhtä aikaa.
+	- Levyn nimeä klikkaamalla pääset levyn infosivulle.
+	
+3. Kirjautuminen
+	- Klikkaa linkkiä Login etusivun oikeassa yläkulmassa.
+	- Kirjoita salasana tekstikenttään ja paina OK (testitietokannan salasana on example).
+	
+4. Kirjautuminen
+	- Klikkaa linkkiä Logout etusivun oikeassa yläkulmassa.
+	
+5. Kirjautumisen jälkeen voit 
+	- Lisätä levyjä tietokantaan klikkaamalla Add a record -linkkiä.
+	- Lisätä, muokata ja poistaa tietokannan esittäjiä ja levy-yhtiöitä hallintapaneelissa klikkaamalla Control panel -linkkiä.
+	- Muokata tietyn levyn tietoja menemällä levyn infosivulle ja valitsemalla Edit record.
+	- Poistaa levyn menemällä levyn infosivulle ja valitsemalla Delete record.
+	
+	5.1. Levyn lisääminen
+		- Valitse Add a record etusivulta.
+		- Täytä ainakin pakolliset kentät ja valitse Save tallentaaksesi levyn tietokantaan. Reset tyhjentää lomakkeen.
+		- Kansikuvasta joku huomio jos tarvitsee??
+		
+	5.2. Levyn tietojen muokkaaminen
+		- Valitse levy etusivulta, mene sen infosivulle ja valitse Edit record.
+		- Muokkauslomake on valmiiksi täytetty vanhoilla tiedoilla. Muuta haluamasi, älä jätä pakollisia kenttiä tyhjiksi ja valitse Save tallentaaksesi tiedot. Reset nollaa lomakkeen.
+		- Kansikuvasta joku huomio jos tarvitsee??
+		
+	5.3. Levyn poistaminen
+		- Valitse levy etusivulta, mene sen infosivulle ja valitse Delete record.
+		- Jos olet varma, että haluat poistaa levyn, valitse ilmestyvästä varmistusikkunasta OK. Cancel peruu toiminnon. (Selaimen JavaScript-tuen on oltava päällä.)
+	
+	5.4. Tietokannan esittäjien ja levy-yhtiöiden hallinta
+		- Avaa hallintapaneeli valitsemalla Control panel etusivulta.
+		- Jos haluat muokata esittäjiä, valitse Artists-välilehti; jos levy-yhtiöitä, valitse Labels.
+		- Jos haluat lisätä uuden esittäjän/levy-yhtiön, valitse alasvetovalikosta Add new. Täytä ainakin pakolliset kentät ja valitse Save.
+		- Jos haluat muokata tietokannasta löytyvää esittäjää/levy-yhtiötä, valitse se alasvetovalikosta ja klikkaa Show. Muokkaa haluamasi kenttien sisältöä ja valitse Save.
+		- Jos haluat poistaa tietokannasta löytyvää esittäjää/levy-yhtiötä, valitse se alasvetovalikosta ja klikkaa Show. Klikkaa sitten Delete-painiketta.
