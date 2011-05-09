@@ -4,7 +4,7 @@
 \usepackage{a4wide}
 \usepackage[finnish]{babel}
 \usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{float}
 
@@ -26,28 +26,36 @@ Hanna Nieminen\\\texttt{hanna.m.nieminen@helsinki.fi}}
 
 \subsection{Järjestelmän tarkoitus}
 Järjestelmän avulla sen ylläpitäjä voi pitää kirjaa levykokoelmastaan.
-Järjestelmään on mahdollista luoda useita erillisiä listoja, jolloin on
-mahdollista erotella esimerkiksi omistamansa levyt ja tulevat hankinnat
-toisistaan.  Lisäksi järjestelmästä voi tehdä julkisen, jolloin myös vierailijat
-voivat selata levylistaa ja yksittäisten levyjen tietoja.
+Järjestelmä tarjoaa useita erillisiä listoja, jolloin on mahdollista
+erotella esimerkiksi omistamansa levyt ja tulevat hankinnat toisistaan.
+Järjestelmästä voi tehdä julkisen, jolloin myös vierailijat voivat selata
+levylistaa ja yksittäisten levyjen tietoja.
 
 \subsection{Toimintaympäristö}
 Järjestelmää käytetään WWW-selaimen kautta. Sen ajamiseen tarvitaan
-Apache-palvelin varustettuna PHP5-tulkilla sekä PostgreSQL-tietokanta.
+Apache-palvelin varustettuna PHP5-tuella sekä PostgreSQL-tietokanta.
 
 \subsection{Rajaukset}
-Kaikki ominaisuudet, joita ei ole tässä dokumentissa erikseen mainittu, on
+Kaikki ominaisuudet, joita ei ole tässä määrittelyssä erikseen mainittu, on
 oletusarvoisesti rajattu järjestelmän ulkopuolelle.
 
 \subsection{Toteutusympäristö}
-Yllättäen järjestelmä toteutetaan sen toimintaympäristössä, eli käyttäen
-Apachea, PHP:tä ja PostgreSQL:ää.
+Järjestelmän toteuttamisessa hyödynnetään Vim-editoria Arch Linux
+-käyttöjärjestelmässä sekä Notepad++-editoria Windows 7
+-käyttöjärjestelmässä. Toteutuksen aikana järjestelmää testataan
+paikallisilla Apache- ja PostgreSQL-palvelimilla.
 
 \section{Yleiskuva järjestelmästä}
 
 \subsection{Sidosryhmäkaavio}
+
 \vspace{1em}
-\includegraphics[width=\textwidth]{sidosryhmakaavio}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=\textwidth]{diagrams/sidosryhmakaavio}
+  \end{center}
+  \caption{Sidosryhmäkaavio}
+\end{figure}
 
 \subsection{Käyttäjäryhmät}
 \begin{description}
@@ -92,13 +100,15 @@ kirjautua ulos, jolloin hänestä tulee vierailija.
 
 \end{itemize}
 
+\chapter{Suunnittelu}
+
 \section{Järjestelmän tietosisältö}
 
 \begin{figure}[H]
-\begin{center}
-\includegraphics[width=\textwidth]{kasitekaavio}
-\end{center}
-\caption{Käsitekaavio}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{diagrams/kasitekaavio}
+  \end{center}
+  \caption{Käsitekaavio}
 \end{figure}
 
 \begin{itemize}
