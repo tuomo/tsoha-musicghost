@@ -37,12 +37,14 @@ CREATE TABLE record (
     title       TEXT NOT NULL,
     box_set     BOOLEAN NOT NULL,
     box_id      INT REFERENCES record(id),
-    type        TEXT REFERENCES type(name) NOT NULL,
+    type        TEXT REFERENCES type(name) ON UPDATE CASCADE NOT NULL,
     first_year  INT,
     this_year   INT,
-    format      TEXT REFERENCES format(name),
-    packaging   TEXT REFERENCES packaging(name),
-    label       INT REFERENCES label(id),
+    format      TEXT REFERENCES format(name) ON DELETE SET DEFAULT
+                ON UPDATE CASCADE,
+    packaging   TEXT REFERENCES packaging(name) ON DELETE SET DEFAULT
+                ON UPDATE CASCADE,
+    label       INT REFERENCES label(id) ON DELETE SET DEFAULT,
     limited     BOOLEAN,
     ltd_num     INT,
     added       DATE,
@@ -52,8 +54,8 @@ CREATE TABLE record (
 );
 
 CREATE TABLE record_list (
-    record      INT REFERENCES record(id),
-    list        TEXT REFERENCES list(name),
+    record      INT REFERENCES record(id) ON DELETE CASCADE,
+    list        TEXT REFERENCES list(name) ON DELETE RESTRICT ON UPDATE CASCADE,
     PRIMARY KEY (record, list)
 );
 
