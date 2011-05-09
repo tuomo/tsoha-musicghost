@@ -302,206 +302,275 @@ Generoitu html-sivu, jonka tuottaa toiminto front.php. Kuva näkymästä
 liitteenä X.
 
 Sivuun liittyvät tiedostot:
-	logo.png: levytietokannan logo
+\begin{itemize}
+  \item logo.png: levytietokannan logo
+\end{itemize}
 
-Etusivulla on tiivis listaus käyttäjän tietokannassa olevista levyistä 
-(levyistä näytetään niiden esittäjä, nimi, julkaisuvuosi ja formaatti) 
-sekä alasvetovalikko ja hakukenttä, joiden avulla voidaan tarkastella eri listoille luokiteltuja levyjä jonkin suodattimen kanssa. 
-Hakukentän käsittelee toiminto front.post.php, joka käynnistetään Show-nappia painamalla. 
-Tietokannan levyjen listauksessa jokaisen levyn nimi toimii linkkinä kyseisen levyn infosivulle. 
+Etusivulla on tiivis listaus käyttäjän tietokannassa olevista levyistä
+(levyistä näytetään niiden esittäjä, nimi, julkaisuvuosi ja formaatti) sekä
+alasvetovalikko ja hakukenttä, joiden avulla voidaan tarkastella eri
+listoille luokiteltuja levyjä jonkin suodattimen kanssa.  Hakukentän
+käsittelee toiminto front.post.php, joka käynnistetään Show-nappia
+painamalla.  Tietokannan levyjen listauksessa jokaisen levyn nimi toimii
+linkkinä kyseisen levyn infosivulle.
+
 Lisäksi sivulla on seuraavat linkit:
 
-Sisäänkirjautumattomalle käyttäjälle:
+\begin{itemize}
+  \item Sisäänkirjautumattomalle käyttäjälle:
+    \begin{itemize}
+	    \item Login (kirjaudu sisään),
+		    vie sisäänkirjautumissivulle
+    \end{itemize}
 
-	Login (kirjaudu sisään)
-		vie sisäänkirjautumissivulle
+  \item Sisäänkirjautuneelle käyttäjälle:
+    \begin{itemize}
+	    \item Logout (kirjaudu ulos),
+		    kirjaa käyttäjän ulos
+	    \item Add a record (lisää levy),
+		    vie levyn lisäyssivulle
+	    \item Control panel (hallintapaneeli),
+		    vie tietokannan hallintapaneelisivulle
+    \end{itemize}
+\end{itemize}
 
-Sisäänkirjautuneelle käyttäjälle:
-
-	Logout (kirjaudu ulos)
-		kirjaa käyttäjän ulos
-
-	Add a record (lisää levy)
-		vie levyn lisäyssivulle
-
-	Control panel (hallintapaneeli)
-		vie tietokannan hallintapaneelisivulle
-
-
-Sisäänkirjautumissivu
+\subsubsection{Sisäänkirjautumissivu}
 
 Generoitu html-sivu. Kuva näkymästä liitteenä X.
 
-Sivulla on kenttä salasanan kirjoittamista varten sekä OK-painike. 
-Painiketta painettaessa toiminto login.post.php käsittelee lomakkeen. 
-Isoja ja pieniä kirjaimia ei tulkita samoiksi.
+Sivulla on kenttä salasanan kirjoittamista varten sekä OK-painike.
+Painiketta painettaessa toiminto login.post.php käsittelee lomakkeen.  Isoja
+ja pieniä kirjaimia ei tulkita samoiksi.
 
+\subsubsection{Levyjen lisäys- ja muokkaussivut}
 
-Levyjen lisäys- ja muokkaussivut
+Generoidut html-sivut, jotka tuottaa toiminto addedit.php. Kuvat näkymistä
+liitteinä X ja Y.
 
-Generoidut html-sivut, jotka tuottaa toiminto addedit.php. Kuvat näkymistä liitteinä X ja Y.
+Kummallakin sivulla on lomake, jossa on kentät Artist (esittäjä), Title
+(levyn nimi), Box set (onko levy normaali, boksi vai boksiin kuuluva levy),
+Type (tyyppi), Year (first release) (ensimmäisen julkaisun vuosi), Year
+(this release) (kokoelmassa olevan levyn julkaisuvuosi), Format (formaatti),
+Packaging (kotelon tyyppi), Label (levy-yhtiö), Limited (rajoitettu painos,
+rajoitetun painoksen painosmäärä), Added (lisäämispäivämäärä), Lent (onko
+levy lainassa ja lainaajan nimi) ja Annotation (kuvaus levystä) sekä Cover
+(kansikuva) -tiedostonlähetyskenttä, jonka avulla voidaan ladata omalta
+tietokoneelta kansikuva palvelimelle.
 
-Kummallakin sivulla on lomake, jossa on kentät Artist (esittäjä), Title (levyn nimi), 
-Box set (onko levy normaali, boksi vai boksiin kuuluva levy), Type (tyyppi), 
-Year (first release) (ensimmäisen julkaisun vuosi), Year (this release) (kokoelmassa olevan levyn julkaisuvuosi), 
-Format (formaatti), Packaging (kotelon tyyppi), Label (levy-yhtiö), Limited (rajoitettu painos, rajoitetun painoksen painosmäärä), 
-Added (lisäämispäivämäärä), Lent (onko levy lainassa ja lainaajan nimi) ja Annotation (kuvaus levystä) sekä 
-Cover (kansikuva) -tiedostonlähetyskenttä, jonka avulla voidaan ladata omalta tietokoneelta kansikuva palvelimelle.
+Muokkaussivulla lomake on täytetty valmiiksi tietokannasta löytyvillä
+vanhoilla tiedoilla.
 
-Muokkaussivulla lomake on täytetty valmiiksi tietokannasta löytyvillä vanhoilla tiedoilla.
-
-Lomakkeen tiedot lähettää nappi Save ja tyhjentää nappi Reset. Save-napin painamisen jälkeen lomakkeen käsittelee toiminto addedit.post.php.
+Lomakkeen tiedot lähettää nappi Save ja tyhjentää nappi Reset. Save-napin
+painamisen jälkeen lomakkeen käsittelee toiminto addedit.post.php.
 
 Sivulla on lisäksi linkki Front page, joka vie takaisin etusivulle.
 
+\subsubsection{Levyn infosivu}
 
-Levyn infosivu
-
-Generoitu html-sivu, jonka tuottaa toiminto details.php. Kuvanäkymästä liitteenä X.
+Generoitu html-sivu, jonka tuottaa toiminto details.php. Kuvanäkymästä
+liitteenä X.
 
 Sivuun liittyvät tiedostot:
-	levyn kansikuva, mikäli sellainen on talletettu tietokantaan
+\begin{itemize}
+  \item levyn kansikuva, mikäli sellainen on talletettu tietokantaan
+\end{itemize}
 
-Sivulla on levyn kansikuva (jos sellainen löytyy tietokannasta) sekä levyn esittän, levyn ja levy-yhtiön tietokannasta löytyvät tiedot 
-(esittäjän nimi, esittäjän kotisivu, kuvaus esittäjästä, levyn julkaisuvuodet - alkuperäinen ja kokoelmassa olevan levyn julkaisuvuosi, 
-tyyppi, formaatti, kotelon tyyppi, rajoitetun painoksen tapauksessa painosmäärä, lisäyspäivämäärä, 
-tieto siitä, onko levy lainattu ja kenelle, kuvaus levystä, levy-yhtiön nimi, levy-yhtiön kotisivu ja kuvaus levy-yhtiöstä).
+Sivulla on levyn kansikuva (jos sellainen löytyy tietokannasta) sekä levyn
+esittän, levyn ja levy-yhtiön tietokannasta löytyvät tiedot (esittäjän nimi,
+esittäjän kotisivu, kuvaus esittäjästä, levyn julkaisuvuodet - alkuperäinen
+ja kokoelmassa olevan levyn julkaisuvuosi, tyyppi, formaatti, kotelon
+tyyppi, rajoitetun painoksen tapauksessa painosmäärä, lisäyspäivämäärä,
+tieto siitä, onko levy lainattu ja kenelle, kuvaus levystä, levy-yhtiön
+nimi, levy-yhtiön kotisivu ja kuvaus levy-yhtiöstä).
 
-Sivulla on linkki Front page, joka vie takaisin etusivulle. Sisäänkirjautuneelle käyttäjälle näytetään lisäksi linkit:
+Sivulla on linkki Front page, joka vie takaisin etusivulle.
+Sisäänkirjautuneelle käyttäjälle näytetään lisäksi linkit:
 
-	Edit record (muokkaa levyä)
+\begin{itemize}
+  \item Edit record (muokkaa levyä),
 		vie levyn muokkausssivulle
+  \item Delete record (poista levy).  Varmistaa
+    JavaScript-ilmoitusikkunassa, haluaako käyttäjä todella poistaa levyn.
+    Jos käyttäjä klikkaa OK-painiketta, toiminto delete.php poistaa levyn
+    tietokannasta ja ohjaa käyttäjän sen jälkeen etusivulle.
+    Cancel-painikkeen klikkaaminen ei aiheuta muutoksia.
+\end{itemize}
 
-	Delete record (poista levy)
-		Varmistaa JavaScript-ilmoitusikkunassa, haluaako käyttäjä todella poistaa levyn. 
-		Jos käyttäjä klikkaa OK-painiketta, toiminto delete.php poistaa levyn tietokannasta ja ohjaa käyttäjän sen jälkeen etusivulle. 
-		Cancel-painikkeen klikkaaminen ei aiheuta muutoksia.
+Lisäksi sivulla on em. linkit esittäjän ja levy-yhtiön kotisivuille, mikäli
+ne on talletettu tietokantaan.
 
-(Lisäksi sivulla on em. linkit esittäjän ja levy-yhtiön kotisivuille, mikäli ne on talletettu tietokantaan.)
+\subsubsection{Levytietokannan hallintapaneeli}
 
+Generoitu html-sivu, jonka tuottaa toiminto control.php. Kuva näkymästä
+liitteenä X.
 
-Levytietokannan hallintapaneeli
+Sivulla on välilehdet Artists (esittäjät) ja Labels (levy-yhtiöt), joilla
+voi lisätä, muokata ja poistaa tietokannasta löytyviä esittäjiä ja
+levy-yhtiöitä.
 
-Generoitu html-sivu, jonka tuottaa toiminto control.php. Kuva näkymästä liitteenä X.
+Artists-välilehdellä on alasvetovalikko, josta voi valita, lisääkö uuden
+esittäjän vai muokkaako jotain tietokannasta ennestään löytyvää esittäjää.
+Valinta varmistetaan painamalla painiketta Show, jolloin toiminnot
+control.php ja control.post.php käsittelevät tapahtuman.  Välilehdellä on
+kentät Name (nimi), Sortname (esittäjien järjestämiseen käytettävä nimi),
+Homepage (kotisivu) ja Annotation (vapaavalintainen kuvaus esittäjästä). Jos
+muokataan tietokannasta vanhastaan löytyvää artistia, lomake on esitäytetty
+tietokannasta löytyvillä tiedoilla.  Lomakkeen tiedot tallennetaan
+Save-nappia painamalla tai valittu esittäjä poistetaan tietokannasta
+Delete-nappia painamalla.  Nappia painettaessa toiminnot control.php ja
+control.post.php käsittelevät tapahtuman.
 
-Sivulla on välilehdet Artists (esittäjät) ja Labels (levy-yhtiöt), joilla voi lisätä, muokata ja poistaa tietokannasta löytyviä esittäjiä ja levy-yhtiöitä.
-
-Artists-välilehdellä on alasvetovalikko, josta voi valita, lisääkö uuden esittäjän vai muokkaako jotain tietokannasta ennestään löytyvää esittäjää. 
-Valinta varmistetaan painamalla painiketta Show, jolloin toiminnot control.php ja control.post.php käsittelevät tapahtuman.
-Välilehdellä on kentät Name (nimi), Sortname (esittäjien järjestämiseen käytettävä nimi), 
-Homepage (kotisivu) ja Annotation (vapaavalintainen kuvaus esittäjästä). Jos muokataan tietokannasta vanhastaan löytyvää artistia, lomake on esitäytetty tietokannasta löytyvillä tiedoilla. 
-Lomakkeen tiedot tallennetaan Save-nappia painamalla tai valittu esittäjä poistetaan tietokannasta Delete-nappia painamalla. 
-Nappia painettaessa toiminnot control.php ja control.post.php käsittelevät tapahtuman.
-
-Labels-välilehti on täysin vastaavanlainen (lukuunottamatta Sortname-kenttää, jota ei ole).
+Labels-välilehti on täysin vastaavanlainen (lukuunottamatta
+Sortname-kenttää, jota ei ole).
 
 Lisäksi sivulla on linkki Front page, joka vie takaisin etusivulle.
 
 \subsection{Toiminnot}
 
-front.php
+\subsubsection{front.php}
 
-Toiminto auttaa generoimaan tietokantasovelluksen etusivunäkymän. Käynnistyksen yhteydessä ei välitetä parametreja.
+Toiminto auttaa generoimaan tietokantasovelluksen etusivunäkymän.
+Käynnistyksen yhteydessä ei välitetä parametreja.
 
-Toiminto tekee tietokantakyselyt, joilla haetaan taulusta list sisäänkirjautuneen käyttäjän tapauksessa kaikki listat ja sisäänkirjautumattoman käyttäjän tapauksessa vain julkiset listat. 
-Toiminto hakee myös tarvittaessa tietokannasta ne levyt, joissa esiintyy tietty suodatinsana.
-Lisäksi haetaan taulusta record jokaisen levyn id, nimi, alkuperäinen julkaisuvuosi ja formaatti sekä taulusta artist levyn esittäjän nimi. Toiminto myös generoi jokaista levyä vastaavan infosivun urlin.
+Toiminto tekee tietokantakyselyt, joilla haetaan taulusta list
+sisäänkirjautuneen käyttäjän tapauksessa kaikki listat ja
+sisäänkirjautumattoman käyttäjän tapauksessa vain julkiset listat.  Toiminto
+hakee myös tarvittaessa tietokannasta ne levyt, joissa esiintyy tietty
+suodatinsana.  Lisäksi haetaan taulusta record jokaisen levyn id, nimi,
+alkuperäinen julkaisuvuosi ja formaatti sekä taulusta artist levyn esittäjän
+nimi. Toiminto myös generoi jokaista levyä vastaavan infosivun urlin.
 
+\subsubsection{login.post.php}
 
-login.post.php
-
-Toiminto käynnistetään sisäänkirjautumissivulta käsittelemään kirjautumislomake. TOiminto tarkistaa käyttäjän käyttöoikeuden tämän syöttämän salasanan perusteella. 
-Jos annettu salasana on oikea, laitetaan Atomikin session päälle ja generoidaan etusivu, jolla näkyy myös ylläpitoon tarvittavat linkit. Jos salasana on väärä, ei tehdä mitään.
-
-Toiminnon parametrit:
-	password (salasana): merkkijono
-
-	
-logout.php
-
-Toiminto käynnistetään etusivulta linkkiä Logout klikkaamalla. Toiminto kirjaa käyttäjän ulos (Atomikin session) ja ohjaa käyttäjän takaisin etusivulle.
-
-
-addedit.php
-
-Toiminto auttaa generoimaan levyjen lisäys- ja muokkaussivut. Käynnistyksen yhteydessä ei välitetä parametreja. 
-Toiminto käynnistyy etusivulta linkkiä Add a record klikkaamalla tai levyn infosivulta linkkiä Edit record klikkaamalla.
-
-Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään. 
-Sen jälkeen tehdään tietokantakyselyt, joilla haetaan kaikkien esittäjien id:t taulusta artist (ja järjestetään ne sortnamen mukaan), kaikki eri boxset-tyypit, 
-kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki kotelotyypit taulusta packaging ja kaikki levy-yhtiöiden id:t taulusta label (ja järjestetään ne nimen mukaan).
-
-
-addedit.post.php
-
-Toiminto käynnistetään levyjen lisäämisnäkymästä käsittelemään lisäyslomake tai levyn muokkausnäkymästä käsittelemään muokkauslomake. 
-Toiminto tarkistaa käyttäjän lomakkeelle syöttämät tiedot ja antaa tarvittaessa virheilmoituksen puuttuvista pakollisista tiedoista. 
-Kelvolliset parametrit saatuaan ohjelma lisää tauluun record käyttäjän haluaman levyn tai päivittää muokattavan levyn tiedot taulussa record.
+Toiminto käynnistetään sisäänkirjautumissivulta käsittelemään
+kirjautumislomake. Toiminto tarkistaa käyttäjän käyttöoikeuden tämän
+syöttämän salasanan perusteella.  Jos annettu salasana on oikea, laitetaan
+Atomikin session päälle ja generoidaan etusivu, jolla näkyy myös ylläpitoon
+tarvittavat linkit. Jos salasana on väärä, ei tehdä mitään.
 
 Toiminnon parametrit:
-	artist (esittäjä): kokonaisluku (id jollekin tietokannasta löytyvälle esittäjälle, jotka on lueteltu alasvetovalikossa)
-	title (levyn nimi): merkkijono
-	boxset (onko levy normaali, boksi vai boksiin kuuluva levy): merkkijono (normal, boxset tai item)
-	box_id (boksin tunniste): kokonaisluku
-	type (tyyppi): merkkijono (album, single, EP, compilation, soundtrack, interview, live tai other)
-	year (first release) (ensimmäisen julkaisun vuosi): kokonaisluku
-	year (this release) (kokoelmassa olevan levyn julkaisuvuosi): kokonaisluku
-	format (formaatti): merkkijono (CD, 2CD, DVD, CD+DVD, DVD+CD)
-	packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep case tai other)
-	label (levy-yhtiö): kokonaisluku (id jollekin levy-yhtiölle, jotka on lueteltu alasvetovalikossa)
-	limited (onko rajoitettu painos): boolean
-	ltd_num (rajoitetun painoksen painosmäärä): kokonaisluku
-	added (lisäyspäivämäärä): date
-	lent (onko levy lainassa): boolean
-	borrower (lainaajan nimi): merkkijono
-	annotation (kuvaus levystä): merkkijono
-	cover (kansikuvan tiedostonimi): merkkijono
+\begin{itemize}
+  \item password (salasana): merkkijono
+\end{itemize}
 
+\subsubsection{logout.php}
 
-details.php
+Toiminto käynnistetään etusivulta linkkiä Logout klikkaamalla. Toiminto
+kirjaa käyttäjän ulos (Atomikin session) ja ohjaa käyttäjän takaisin
+etusivulle.
 
-Toiminto käynnistetään etusivulta klikkaamalla jonkin levyn nimeä, jolloin se auttaa generoimaan levyn lisätietosivun. 
-Toiminto saa parametrinaan levyn id:n.
+\subsubsection{addedit.php}
 
-Toiminto tekee tietokantakyselyn, jolla haetaan taulusta record levyn tiedot (nimi, onko se osa boksia, boksin tunniste, tyyppi, julkaisuvuodet, formaatti, 
-kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen numero, lisäyspäivämäärä, onko lainattu, lainaajan nimi, levyn kuvaus, kansikuva), 
-taulusta artist levyn esittäjän nimi, kotisivu ja kuvaus sekä taulusta label levy-yhtiön nimi, kotisivu ja kuvaus.
+Toiminto auttaa generoimaan levyjen lisäys- ja muokkaussivut. Käynnistyksen
+yhteydessä ei välitetä parametreja.  Toiminto käynnistyy etusivulta linkkiä
+Add a record klikkaamalla tai levyn infosivulta linkkiä Edit record
+klikkaamalla.
 
+Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään.  Sen jälkeen
+tehdään tietokantakyselyt, joilla haetaan kaikkien esittäjien id:t taulusta
+artist (ja järjestetään ne sortnamen mukaan), kaikki eri boxset-tyypit,
+kaikki levytyypit taulusta type, kaikki formaatit taulusta format, kaikki
+kotelotyypit taulusta packaging ja kaikki levy-yhtiöiden id:t taulusta label
+(ja järjestetään ne nimen mukaan).
 
-delete.php
+\subsubsection{addedit.post.php}
 
-Toiminto käynnistetään levyn infosivulta klikkaamalla Delete record -linkkiä ja valitsemalla ilmestyvästä varmistusikkunasta OK-painike. Toiminnon parametrina välitetään poistettavan levyn id.
-
-Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään, poistaa sitten levyn tietokannasta ja ohjaa käyttäjän takaisin etusivulle.
-
-
-control.php
-
-Toiminto käynnistetään etusivulta klikkaamalla linkkiä Control panel, ja se auttaa generoimaan levytietokannan hallintapaneelin välilehtineen.
-
-Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään. Tietokannasta haetaan kaikki esittäjät ja levy-yhtiöt.
-
-
-control.post.php
-
-Toiminto käynnistetään käsittelemään lomake, kun hallintapaneelissa klikataan Show-, Save- tai Delete-painiketta. 
-Show-napin tapauksessa valinnasta riippuen toiminto joko generoi tyhjän lomakkeen tai hakee tietokannasta valitun esittäjän tai levy-yhtiön tiedot lomaketta varten. 
-Save-nappia painettaessa toiminto tarkistaa käyttäjän syöttämät tiedot, generoi tarvittaessa virheilmoitukset ja kelvolliset tiedot saatuaan lisää esittäjän tai levy-yhtiön tietokantaan tai päivittää vanhat tiedot. 
-Delete-nappia painettassa toiminto tarkistaa, onko esittäjällä tai levy-yhtiöllä levyjä tietokannassa. Myönteisessä tapauksessa se generoi virheilmoituksen, kielteisessä poistaa valitun esittäjän tai levy-yhtiön tietokannasta.
+Toiminto käynnistetään levyjen lisäämisnäkymästä käsittelemään lisäyslomake
+tai levyn muokkausnäkymästä käsittelemään muokkauslomake.  Toiminto
+tarkistaa käyttäjän lomakkeelle syöttämät tiedot ja antaa tarvittaessa
+virheilmoituksen puuttuvista pakollisista tiedoista.  Kelvolliset parametrit
+saatuaan ohjelma lisää tauluun record käyttäjän haluaman levyn tai päivittää
+muokattavan levyn tiedot taulussa record.
 
 Toiminnon parametrit:
-	entry (valitun esittäjän tai levy-yhtiön tunniste): kokonaisluku
-	name (valitun esittäjän tai levy-yhtiön nimi): merkkijono
-	sortname (valitun esittäjän järjestysnimi): merkkijono
-	homepage (valitun esittäjän tai levy-yhtiön kotisivun url): merkkijono
-	annotation (valitun esittäjän tai levy-yhtiön vapaavalintainen kuvaus): merkkijono
-	
+\begin{itemize}
+  \item artist (esittäjä): kokonaisluku (id jollekin tietokannasta
+    löytyvälle esittäjälle, jotka on lueteltu alasvetovalikossa)
+  \item title (levyn nimi): merkkijono
+  \item boxset (onko levy normaali, boksi vai boksiin kuuluva levy):
+    merkkijono (normal, boxset tai item)
+  \item box\_id (boksin tunniste): kokonaisluku
+  \item type (tyyppi): merkkijono (album, single, EP, compilation,
+    soundtrack, interview, live tai other)
+  \item year (first release) (ensimmäisen julkaisun vuosi): kokonaisluku
+  \item year (this release) (kokoelmassa olevan levyn julkaisuvuosi):
+    kokonaisluku
+  \item format (formaatti): merkkijono (CD, 2CD, DVD, CD+DVD, DVD+CD)
+  \item packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep
+    case tai other)
+  \item label (levy-yhtiö): kokonaisluku (id jollekin levy-yhtiölle, jotka
+    on lueteltu alasvetovalikossa)
+  \item limited (onko rajoitettu painos): boolean
+  \item ltd\_num (rajoitetun painoksen painosmäärä): kokonaisluku
+  \item added (lisäyspäivämäärä): date
+  \item lent (onko levy lainassa): boolean
+  \item borrower (lainaajan nimi): merkkijono
+  \item annotation (kuvaus levystä): merkkijono
+  \item cover (kansikuvan tiedostonimi): merkkijono
+\end{itemize}
+
+\subsubsection{details.php}
+
+Toiminto käynnistetään etusivulta klikkaamalla jonkin levyn nimeä, jolloin
+se auttaa generoimaan levyn lisätietosivun.  Toiminto saa parametrinaan
+levyn id:n.
+
+Toiminto tekee tietokantakyselyn, jolla haetaan taulusta record levyn tiedot
+(nimi, onko se osa boksia, boksin tunniste, tyyppi, julkaisuvuodet,
+formaatti, kotelon tyyppi, onko rajoitettu painos, rajoitetun painoksen
+numero, lisäyspäivämäärä, onko lainattu, lainaajan nimi, levyn kuvaus,
+kansikuva), taulusta artist levyn esittäjän nimi, kotisivu ja kuvaus sekä
+taulusta label levy-yhtiön nimi, kotisivu ja kuvaus.
+
+\subsubsection{delete.php}
+
+Toiminto käynnistetään levyn infosivulta klikkaamalla Delete record -linkkiä
+ja valitsemalla ilmestyvästä varmistusikkunasta OK-painike. Toiminnon
+parametrina välitetään poistettavan levyn id.
+
+Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään, poistaa sitten
+levyn tietokannasta ja ohjaa käyttäjän takaisin etusivulle.
+
+\subsubsection{control.php}
+
+Toiminto käynnistetään etusivulta klikkaamalla linkkiä Control panel, ja se
+auttaa generoimaan levytietokannan hallintapaneelin välilehtineen.
+
+Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään. Tietokannasta
+haetaan kaikki esittäjät ja levy-yhtiöt.
+
+\subsubsection{control.post.php}
+
+Toiminto käynnistetään käsittelemään lomake, kun hallintapaneelissa
+klikataan Show-, Save- tai Delete-painiketta.  Show-napin tapauksessa
+valinnasta riippuen toiminto joko generoi tyhjän lomakkeen tai hakee
+tietokannasta valitun esittäjän tai levy-yhtiön tiedot lomaketta varten.
+Save-nappia painettaessa toiminto tarkistaa käyttäjän syöttämät tiedot,
+generoi tarvittaessa virheilmoitukset ja kelvolliset tiedot saatuaan lisää
+esittäjän tai levy-yhtiön tietokantaan tai päivittää vanhat tiedot.
+Delete-nappia painettassa toiminto tarkistaa, onko esittäjällä tai
+levy-yhtiöllä levyjä tietokannassa. Myönteisessä tapauksessa se generoi
+virheilmoituksen, kielteisessä poistaa valitun esittäjän tai levy-yhtiön
+tietokannasta.
+
+Toiminnon parametrit:
+\begin{itemize}
+  \item entry (valitun esittäjän tai levy-yhtiön tunniste): kokonaisluku
+  \item name (valitun esittäjän tai levy-yhtiön nimi): merkkijono
+  \item sortname (valitun esittäjän järjestysnimi): merkkijono
+  \item homepage (valitun esittäjän tai levy-yhtiön kotisivun url): merkkijono
+  \item annotation (valitun esittäjän tai levy-yhtiön vapaavalintainen
+    kuvaus): merkkijono
+\end{itemize}
+
 \subsection{Muut komponentit}
 
-- style.css: Sivujen ulkoasun määrittelevä css-tiedosto.
-- logo.png: Levytietokannan logo.
-- favicon.ico: Selaimen osoiterivillä näkyvä pikkukuvake.
-- levyjen kansikuvat
+\begin{itemize}
+  \item style.css: Sivujen ulkoasun määrittelevä css-tiedosto.
+  \item logo.png: Levytietokannan logo.
+  \item favicon.ico: Selaimen osoiterivillä näkyvä pikkukuvake.
+  \item levyjen kansikuvat
+\end{itemize}
 
 \section{Asennustiedot}
 
