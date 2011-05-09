@@ -67,6 +67,7 @@ $error = FALSE;
 if (($data = Atomik::filter($_POST, $rule)) === false) {
     Atomik::flash(A('app/filters/messages'), 'error');
     $error = TRUE;
+    $data = Atomik::filter($_POST, $rule, NULL, FALSE);
 }
 $data['lists'] = isset($_POST['lists']) ? $_POST['lists'] : NULL;
 
