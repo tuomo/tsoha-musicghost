@@ -44,10 +44,10 @@ oletusarvoisesti rajattu järjestelmän ulkopuolelle.
 
 \subsection{Toteutusympäristö}
 
-Järjestelmän toteuttamisessa hyödynnetään Vim-editoria Arch Linux
--käyttöjärjestelmässä sekä Notepad++-editoria Windows 7
--käyttöjärjestelmässä. Toteutuksen aikana järjestelmää testataan
-paikallisilla Apache- ja PostgreSQL-palvelimilla.
+Järjestelmä rakennetaan Atomik Framework 2.2:n päälle. Järjestelmän
+toteuttamisessa hyödynnetään Vim-editoria Arch Linux -käyttöjärjestelmässä
+sekä Notepad++-editoria Windows 7 -käyttöjärjestelmässä. Toteutuksen aikana
+järjestelmää testataan paikallisilla Apache- ja PostgreSQL-palvelimilla.
 
 \section{Yleiskuva järjestelmästä}
 
@@ -278,10 +278,10 @@ oletusarvoisesti rajattu järjestelmän ulkopuolelle.
 
 \subsection{Toteutusympäristö}
 
-Järjestelmän toteuttamisessa hyödynnettiin Vim-editoria Arch Linux
--käyttöjärjestelmässä sekä Notepad++-editoria Windows 7
--käyttöjärjestelmässä. Toteutuksen aikana järjestelmää testattiin
-paikallisilla Apache- ja PostgreSQL-palvelimilla.
+Järjestelmä rakennettiin Atomik Framework 2.2:n päälle. Järjestelmän
+toteuttamisessa hyödynnettiin Vim-editoria Arch Linux -käyttöjärjestelmässä
+sekä Notepad++-editoria Windows 7 -käyttöjärjestelmässä. Toteutuksen aikana
+järjestelmää testattiin paikallisilla Apache- ja PostgreSQL-palvelimilla.
 
 \section{Ohjelmiston yleisrakenne}
 
@@ -449,9 +449,10 @@ nimi. Toiminto myös generoi jokaista levyä vastaavan infosivun urlin.
 
 Toiminto käynnistetään sisäänkirjautumissivulta käsittelemään
 kirjautumislomake. Toiminto tarkistaa käyttäjän käyttöoikeuden tämän
-syöttämän salasanan perusteella.  Jos annettu salasana on oikea, laitetaan
-Atomikin session päälle ja generoidaan etusivu, jolla näkyy myös ylläpitoon
-tarvittavat linkit. Jos salasana on väärä, ei tehdä mitään.
+syöttämän salasanan perusteella.  Jos annettu salasana on oikea,
+tallennetaan sessioon tieto kirjautumisesta ja generoidaan etusivu, jolla
+näkyy myös ylläpitoon tarvittavat linkit. Jos salasana on väärä, ei tehdä
+mitään.
 
 Toiminnon parametrit:
 \begin{itemize}
@@ -579,6 +580,34 @@ Toiminnon parametrit:
 \end{itemize}
 
 \section{Asennustiedot}
+
+\subsection{Hakemistorakenne}
+
+Sovelluksen hakemistorakenne perustuu Atomik Frameworkin tarjoamaan malliin.
+Varsinainen sovellus sijaisee \texttt{app}-hakemiston alla.
+\texttt{assets}-hakemistossa sijaitsee sovelluksen käyttämät staattiset
+kuvat ja CSS-tiedosto. \texttt{artwork}-hakemistoa käytetään käyttäjän
+lähettämien kansikuvien tallentamiseen. Dokumentaatio sijaitsee
+\texttt{doc}-hakemistossa.
+
+\subsection{Asentaminen}
+
+\begin{enumerate}
+  \item Pura sovelluksen hakemistorakenne haluamaasi paikkaan Apachen
+    dokumenttijuuren alle.
+  \item Muokkaa tiedostoa \texttt{app/includes/config.user.php}. Aseta
+    nimesi, kirjautumiseen vaadittava salasana ja tietokantayhteyden
+    muodostamiseen tarvittavat asetukset. Mikäli käytössäsi ei ole PHP:n
+    Imagick-lisäosaa, aseta kansikuvien pienentäminen pois päältä. Mikäli
+    Apachen mod\_rewrite-moduulin käyttö ei ole mahdollista, aseta URL:ien
+    uudelleenkirjoitus pois päältä.
+  \item Varmista, että Apachella on kirjoitusoikeudet
+    \texttt{artwork}-hakemistoon.
+  \item Luo tietokantaasi tarvittavat taulut ja niiden sisältö
+    suorittamalla tiedostossa doc/sql/init\_db.sql olevat
+    SQL-komennot.
+  \item Sovellus on valmis käyttöön.
+\end{enumerate}
 
 \section{Käyttöohje}
 
