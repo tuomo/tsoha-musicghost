@@ -66,7 +66,8 @@ INSERT INTO type (name) VALUES ('Album'), ('Single'), ('EP'), ('Compilation'),
 INSERT INTO list (name, public, "default") VALUES ('Collection', TRUE, TRUE);
 
 INSERT INTO format (name) VALUES ('CD'), ('2CD'),
-    ('DVD'), ('2DVD'), ('CD+DVD'), ('DVD+CD');
+    ('DVD'), ('2DVD'), ('CD+DVD'), ('DVD+CD'), ('BD'), ('BD+DVD'),
+    ('SACD'), ('DVD-A'), ('vinyl');
 
-INSERT INTO packaging (name) VALUES ('Jewel case'), ('Digipack'),
+INSERT INTO packaging (name) VALUES ('Jewel case'), ('Digipak'),
     ('Keep case'), ('Other');

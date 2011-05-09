@@ -14,8 +14,6 @@ $lists = $values['list'];
 $old_list = $values['old_list'][0]['id'];
 $old_filter = NULL;
 
-// TODO: validate input
-
 $list = $old_list;
 $filter = array();
 
@@ -31,7 +29,6 @@ $sql = 'SELECT a.name AS artist, r.id, r.title, r.first_year AS year, r.format '
        'WHERE a.id = r.artist AND r.id = rl.record AND rl.list = ?';
 $params = array($list);
 
-// FIXME
 foreach ($filter as $word) {
     if (empty($word)) {
         continue;
@@ -43,7 +40,6 @@ foreach ($filter as $word) {
 }
 
 $records = $db->query($sql, $params)->fetchAll();
-//$records = $db->query('SELECT * FROM record')->fetchAll();
 
 foreach ($records as &$r) {
     $r['artist'] = Atomik::escape($r['artist']);
