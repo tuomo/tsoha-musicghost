@@ -30,7 +30,10 @@ ul {
 li {
 	list-style-type: disc;
 	padding: 0px;
-	margin-left: 130px;
+	}
+li.errorlist {
+	text-align: center;
+	color: rgb(255,0,0);
 	}
 img.recordimage {
 	padding: 3px;
