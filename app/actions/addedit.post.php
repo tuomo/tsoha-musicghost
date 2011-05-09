@@ -208,6 +208,7 @@ if ($error) {
         $new_cover = $id.'.'.pathinfo($cover['name'], PATHINFO_EXTENSION);
         $path = $dir.'/'.$new_cover;
         move_uploaded_file($cover['tmp_name'], $path);
+        chmod($path, 0755);
 
         // Resize the image
         if (A('config/resize')) {
