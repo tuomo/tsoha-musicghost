@@ -64,40 +64,41 @@ $rule = array(
 
 $error = FALSE;
 
-if (($data = Atomik::filter($_POST, $rule)) === false) {
+if (($data = Atomik::filter($_POST, $rule)) === FALSE) {
     Atomik::flash(A('app/filters/messages'), 'error');
     $error = TRUE;
-    $data = Atomik::filter($_POST, $rule, NULL, FALSE);
 }
 $data['lists'] = isset($_POST['lists']) ? $_POST['lists'] : NULL;
 
-if (!validate_id($data['lists'], $values['lists'], FALSE)) {
-    Atomik::flash('Invalid list', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['artist'], $values['artist'])) {
-    Atomik::flash('Invalid artist', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['boxid'], $values['boxset'])) {
-    Atomik::flash('Invalid box set', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['type'], $values['type'])) {
-    Atomik::flash('Invalid type', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['format'], $values['format'])) {
-    Atomik::flash('Invalid format', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['packaging'], $values['packaging'])) {
-    Atomik::flash('Invalid packaging', 'error');
-    $error = TRUE;
-}
-if (!validate_id($data['label'], $values['label'])) {
-    Atomik::flash('Invalid label', 'error');
-    $error = TRUE;
+if (!$error) {
+    if (!validate_id($data['lists'], $values['lists'], FALSE)) {
+        Atomik::flash('Invalid list', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['artist'], $values['artist'])) {
+        Atomik::flash('Invalid artist', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['boxid'], $values['boxset'])) {
+        Atomik::flash('Invalid box set', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['type'], $values['type'])) {
+        Atomik::flash('Invalid type', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['format'], $values['format'])) {
+        Atomik::flash('Invalid format', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['packaging'], $values['packaging'])) {
+        Atomik::flash('Invalid packaging', 'error');
+        $error = TRUE;
+    }
+    if (!validate_id($data['label'], $values['label'])) {
+        Atomik::flash('Invalid label', 'error');
+        $error = TRUE;
+    }
 }
 
 $cover = $_FILES['cover'];

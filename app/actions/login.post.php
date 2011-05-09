@@ -8,6 +8,6 @@ if (isset($_POST['submit']))
 
     if ($password == A('config/password')) {
         Atomik::set('session/logged_in', true);
-        Atomik::redirect('index');
+        Atomik::redirect('@front');
     }
 }
