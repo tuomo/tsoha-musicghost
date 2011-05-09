@@ -299,7 +299,7 @@ paikallisilla Apache- ja PostgreSQL-palvelimilla.
 \subsubsection{Etusivu}
 
 Generoitu html-sivu, jonka tuottaa toiminto front.php. Kuva näkymästä
-liitteenä X.
+liitteenä 1.
 
 Sivuun liittyvät tiedostot:
 \begin{itemize}
@@ -336,7 +336,7 @@ Lisäksi sivulla on seuraavat linkit:
 
 \subsubsection{Sisäänkirjautumissivu}
 
-Generoitu html-sivu. Kuva näkymästä liitteenä X.
+Generoitu html-sivu. Kuva näkymästä liitteenä 2.
 
 Sivulla on kenttä salasanan kirjoittamista varten sekä OK-painike.
 Painiketta painettaessa toiminto login.post.php käsittelee lomakkeen.  Isoja
@@ -345,7 +345,7 @@ ja pieniä kirjaimia ei tulkita samoiksi.
 \subsubsection{Levyjen lisäys- ja muokkaussivut}
 
 Generoidut html-sivut, jotka tuottaa toiminto addedit.php. Kuvat näkymistä
-liitteinä X ja Y.
+liitteinä 3 ja 4.
 
 Kummallakin sivulla on lomake, jossa on kentät Artist (esittäjä), Title
 (levyn nimi), Box set (onko levy normaali, boksi vai boksiin kuuluva levy),
@@ -368,7 +368,7 @@ Sivulla on lisäksi linkki Front page, joka vie takaisin etusivulle.
 \subsubsection{Levyn infosivu}
 
 Generoitu html-sivu, jonka tuottaa toiminto details.php. Kuvanäkymästä
-liitteenä X.
+liitteenä 5.
 
 Sivuun liittyvät tiedostot:
 \begin{itemize}
@@ -402,7 +402,7 @@ ne on talletettu tietokantaan.
 \subsubsection{Levytietokannan hallintapaneeli}
 
 Generoitu html-sivu, jonka tuottaa toiminto control.php. Kuva näkymästä
-liitteenä X.
+liitteenä 6.
 
 Sivulla on välilehdet Artists (esittäjät) ja Labels (levy-yhtiöt), joilla
 voi lisätä, muokata ja poistaa tietokannasta löytyviä esittäjiä ja
@@ -430,7 +430,12 @@ Lisäksi sivulla on linkki Front page, joka vie takaisin etusivulle.
 \subsubsection{front.php}
 
 Toiminto auttaa generoimaan tietokantasovelluksen etusivunäkymän.
-Käynnistyksen yhteydessä ei välitetä parametreja.
+
+Toiminnon parametrit:
+\begin{itemize}
+  \item list (valittu lista): merkkijono
+  \item filter (hakusanat): merkkijono
+\end{itemize}
 
 Toiminto tekee tietokantakyselyt, joilla haetaan taulusta list
 sisäänkirjautuneen käyttäjän tapauksessa kaikki listat ja
@@ -462,9 +467,9 @@ etusivulle.
 \subsubsection{addedit.php}
 
 Toiminto auttaa generoimaan levyjen lisäys- ja muokkaussivut. Käynnistyksen
-yhteydessä ei välitetä parametreja.  Toiminto käynnistyy etusivulta linkkiä
-Add a record klikkaamalla tai levyn infosivulta linkkiä Edit record
-klikkaamalla.
+yhteydessä välitetään osoiteparametrina levyn id, mikäli on kyse muokkauksesta.
+Toiminto käynnistyy etusivulta linkkiä Add a record klikkaamalla tai levyn
+infosivulta linkkiä Edit record klikkaamalla.
 
 Toiminto tarkistaa ensin, onko käyttäjä kirjautunut sisään.  Sen jälkeen
 tehdään tietokantakyselyt, joilla haetaan kaikkien esittäjien id:t taulusta
@@ -495,8 +500,8 @@ Toiminnon parametrit:
   \item year (first release) (ensimmäisen julkaisun vuosi): kokonaisluku
   \item year (this release) (kokoelmassa olevan levyn julkaisuvuosi):
     kokonaisluku
-  \item format (formaatti): merkkijono (CD, 2CD, DVD, CD+DVD, DVD+CD)
-  \item packaging (kotelon tyyppi): merkkijono (jewel case, digipack, keep
+  \item format (formaatti): merkkijono (esim. 2CD, DVD, tai CD+DV)
+  \item packaging (kotelon tyyppi): merkkijono (esim. jewel case, keep
     case tai other)
   \item label (levy-yhtiö): kokonaisluku (id jollekin levy-yhtiölle, jotka
     on lueteltu alasvetovalikossa)
@@ -548,10 +553,10 @@ tietokannasta valitun esittäjän tai levy-yhtiön tiedot lomaketta varten.
 Save-nappia painettaessa toiminto tarkistaa käyttäjän syöttämät tiedot,
 generoi tarvittaessa virheilmoitukset ja kelvolliset tiedot saatuaan lisää
 esittäjän tai levy-yhtiön tietokantaan tai päivittää vanhat tiedot.
-Delete-nappia painettassa toiminto tarkistaa, onko esittäjällä tai
-levy-yhtiöllä levyjä tietokannassa. Myönteisessä tapauksessa se generoi
-virheilmoituksen, kielteisessä poistaa valitun esittäjän tai levy-yhtiön
-tietokannasta.
+Delete-nappia painettassa toiminto tarkistaa, onko esittäjällä levyjä
+tietokannassa, sillä esittäjä on pakollinen tieto. Myönteisessä tapauksessa
+se generoi virheilmoituksen, kielteisessä poistaa valitun esittäjän
+tietokannasta. Levy-yhtiöllä ei vastaavaa tarkistusta tehdä.
 
 Toiminnon parametrit:
 \begin{itemize}
@@ -568,14 +573,110 @@ Toiminnon parametrit:
 \begin{itemize}
   \item style.css: Sivujen ulkoasun määrittelevä css-tiedosto.
   \item logo.png: Levytietokannan logo.
+  \item sampleimage.png: Kuva, joka näytetään levyille, joilla ei ole
+    käyttäjän lähettämää kansikuvaa.
   \item favicon.ico: Selaimen osoiterivillä näkyvä pikkukuvake.
-  \item levyjen kansikuvat
 \end{itemize}
 
 \section{Asennustiedot}
 
 \section{Käyttöohje}
 
-\section{Liitteet}
+\subsection{Kirjautumaton käyttäjä}
+
+\begin{itemize}
+  \item Etusivulla näkyy listaus levytietokannan levyistä.
+  \item Voit tarkastella tietylle listalle (kokoelma, toivelista,
+    myyntilista) luokiteltuja levyjä valitsemalla listan alasvetovalikosta
+    ja klikkaamalla Show.
+  \item Voit hakea levyjä jollain hakusanoilla kirjoittamalla sanat kenttään
+    Search ja klikkaamalla Show. Haku kohdistuu kaikkiin etusivun
+    listauksessa näkyviin kenttiin.
+  \item Edelliset voi tehdä myös yhtä aikaa.
+  \item Levyn nimeä klikkaamalla pääset levyn infosivulle.
+\end{itemize}
+	
+\subsection{Kirjautuminen sisään}
+
+\begin{itemize}
+  \item Klikkaa linkkiä Login etusivun oikeassa yläkulmassa.
+  \item Kirjoita salasana tekstikenttään ja paina OK.
+\end{itemize}
+	
+\subsection{Kirjautuminen ulos}
+
+\begin{itemize}
+  \item Klikkaa linkkiä Logout etusivun oikeassa yläkulmassa.
+\end{itemize}
+	
+\subsection{Kirjautumisen jälkeen}
+
+\begin{itemize}
+  \item Voit lisätä levyjä tietokantaan klikkaamalla Add a record -linkkiä.
+  \item Voit lisätä, muokata ja poistaa tietokannan esittäjiä ja levy-yhtiöitä
+    hallintapaneelissa klikkaamalla Control panel -linkkiä.
+  \item Voit muokata tietyn levyn tietoja menemällä levyn infosivulle ja
+    valitsemalla Edit record.
+  \item Voit poistaa levyn menemällä levyn infosivulle ja valitsemalla Delete
+    record.
+\end{itemize}
+	
+\subsubsection{Levyn lisääminen}
+
+\begin{itemize}
+  \item Valitse Add a record etusivulta.
+  \item Täytä ainakin pakolliset (asteriskilla merkityt) kentät. Valitse
+    Save tallentaaksesi levyn tietokantaan. Reset tyhjentää lomakkeen.
+  \item Voit halutessasi lisätä levyn useammalle listalle kerralla.
+  \item Jos haluat lisätä useammasta levystä koostuvan boksin, lisää
+    ensin itse boksi ja valitse ''Box set''-vaihtoehto. Lisää tämän
+    jälkeen kukin boksiin kuuluva levy. Valitse jokaiselle vaihtoehto
+    ''Part of a box set'' ja valitse alla olevasta pudotusvalikosta
+    aiemmin lisäämäsi boksi.
+  \item Kansikuvan maksimikoko on 1 MB. Se pienennetään kokoon
+    $200\times200$ pikseliä, mikäli kuvien pienennys on kytketty päälle
+    (katso kohta ''Asennustiedot''). Muussa tapauksessa on itse
+    huolehdittava siitä, että lisätyt kuvat ovat järkevän kokoisia.
+\end{itemize}
+		
+\subsubsection{Levyn tietojen muokkaaminen}
+
+\begin{itemize}
+  \item Valitse levy etusivulta, mene sen infosivulle ja valitse Edit
+    record.
+  \item Muokkauslomake on valmiiksi täytetty vanhoilla tiedoilla. Muuta
+    haluamasi, älä jätä pakollisia kenttiä tyhjiksi ja valitse Save
+    tallentaaksesi tiedot. Reset nollaa lomakkeen.
+  \item Katso kohta ''Levyn lisääminen''.
+\end{itemize}
+
+\subsubsection{Levyn poistaminen}
+
+\begin{itemize}
+  \item Valitse levy etusivulta, mene sen infosivulle ja valitse Delete record.
+  \item Jos olet varma, että haluat poistaa levyn, valitse ilmestyvästä
+    varmistusikkunasta OK. Cancel peruu toiminnon. (Selaimen JavaScript-tuen
+    on oltava päällä.)
+\end{itemize}
+	
+\subsubsection{Tietokannan esittäjien ja levy-yhtiöiden hallinta}
+
+\begin{itemize}
+  \item Avaa hallintapaneeli valitsemalla Control panel etusivulta.
+  \item Jos haluat muokata esittäjiä, valitse Artists-välilehti; jos
+    levy-yhtiöitä, valitse Labels.
+  \item Jos haluat lisätä uuden esittäjän/levy-yhtiön, valitse
+    alasvetovalikosta Add new. Täytä ainakin pakolliset (asteriskilla
+    merkityt) kentät ja valitse Save.
+  \item Jos haluat muokata tietokannasta löytyvää esittäjää/levy-yhtiötä,
+    valitse se alasvetovalikosta ja klikkaa Show. Muokkaa haluamasi kenttien
+    sisältöä ja valitse Save.
+  \item Jos haluat poistaa tietokannasta löytyvää esittäjää/levy-yhtiötä,
+    valitse se alasvetovalikosta ja klikkaa Show. Klikkaa sitten
+    Delete-painiketta.
+  \item Huomioi, että artistia, joka on yhdistetty johonkin tietokannassa
+    olevaan levyyn, ei voi poistaa. Ensin on poistettava kaikki kyseisen
+    artistin levyt tai vaihdettava niiden esittäjää.
+\end{itemize}
 
 \end{document}
