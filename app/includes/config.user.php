@@ -3,10 +3,10 @@
 Atomik::set('config', array(
 
     // Name of the owner
-    'name' => 'Example',
+    'name' => 'ExampleOwner',
 
     // Password to modify the collection
-    'password' => 'example',
+    'password' => 'examplepass',
 
     // Database settings
     'db' => array(
@@ -20,5 +20,7 @@ Atomik::set('config', array(
     'resize' => TRUE,
 
 ));
+
+Atomik::set('atomik/url_rewriting', TRUE);
 
 ?>

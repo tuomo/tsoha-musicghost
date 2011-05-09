@@ -18,7 +18,7 @@ Atomik::set(array (
         'catch_errors' => true,
         'display_errors' => true,
         'debug' => true,
-        'url_rewriting' => true,
+        //'url_rewriting' => true,
     ),
     'plugins' =>
     array (
